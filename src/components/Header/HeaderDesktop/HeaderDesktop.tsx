@@ -25,7 +25,7 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
                   <NavLink
                     key={item.name}
                     to={item.to}
-                    onClick={() => onCurrent(item.id)}
+                    onClick={() => onCurrent && onCurrent(item.id)}
                     aria-current={item.current ? "page" : undefined}
                     className={`block rounded-md px-3 py-2 text-base font-medium ${
                       item.current && theme == "dark"

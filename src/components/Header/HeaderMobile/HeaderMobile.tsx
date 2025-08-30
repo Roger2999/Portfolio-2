@@ -17,7 +17,7 @@ export const HeaderMobile = ({ onCurrent, current, theme }: HeaderProps) => {
               key={item.name}
               as={NavLink}
               to={item.to}
-              onClick={() => onCurrent(item.id)}
+              onClick={() => onCurrent && onCurrent(item.id)}
               className={`block rounded-md px-3 py-2 text-base font-medium ${
                 item.current && theme == "dark"
                   ? "bg-gray-900 text-white"
