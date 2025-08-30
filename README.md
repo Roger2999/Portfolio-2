@@ -1,69 +1,108 @@
-# React + TypeScript + Vite
+Aplicación web desarrollada con **React 19 + TypeScript + Vite**, utilizando **TailwindCSS + DaisyUI** para un diseño atractivo y **Zustand + React Query** para el manejo avanzado de estado y datos.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Su objetivo es ser una **base sólida para proyectos web escalables**, incluyendo autenticación, rutas privadas, formularios validados y un diseño totalmente responsive.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características principales
 
-## Expanding the ESLint configuration
+- 🔑 **Rutas privadas y públicas** con React Router DOM
+- 🎨 **TailwindCSS + DaisyUI** para estilos modernos y tematización
+- 📝 **Formularios reactivos** con React Hook Form + Zod (validación)
+- 📡 **Manejo de datos remoto** con TanStack React Query
+- ⚡ **Estado global ligero** con Zustand
+- 📱 **Diseño responsive** listo para mobile y desktop
+- 🔍 **Linting configurado** con ESLint y TypeScript-ESLint
+- 🛠️ Estructura modular y fácil de escalar
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tecnologías utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Framework principal:** [React 19](https://react.dev/)
+- **Compilador & Bundler:** [Vite](https://vitejs.dev/)
+- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
+- **Estilos:** [TailwindCSS](https://tailwindcss.com/) + [DaisyUI](https://daisyui.com/)
+- **Gestión de estado:** [Zustand](https://zustand-demo.pmnd.rs/)
+- **Manejo de datos:** [TanStack React Query](https://tanstack.com/query/latest)
+- **Formularios & Validación:** [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+- **Ruteo:** [React Router DOM](https://reactrouter.com/)
+- **Utilidades:** [Heroicons](https://heroicons.com/) + [Headless UI](https://headlessui.dev/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📂 Estructura del proyecto
+
+```
+src/
+  main.tsx                # Punto de entrada
+  components/             # Componentes reutilizables
+  public/pages/           # Páginas públicas (Home, About, Contact...)
+  private/                # Páginas privadas (Dashboard, Perfil, etc.)
+  stores/                 # Zustand stores
+  services/               # Servicios (auth, API, etc.)
+  hooks/                  # Custom hooks
+  models/                 # Modelos TypeScript
+  data/                   # Datos estáticos
+  assets/                 # Imágenes y SVGs
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Instalación y uso
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clona este repositorio**
+
+   ```bash
+   git clone <url-del-repo>
+   cd projecttsx
+   ```
+
+2. **Instala dependencias**
+
+   ```bash
+   npm install
+   ```
+
+3. **Ejecuta en desarrollo**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Compila para producción**
+
+   ```bash
+   npm run build
+   ```
+
+5. **Previsualiza el build**
+   ```bash
+   npm run preview
+   ```
+
+---
+
+## 📸 Capturas
+
+_Agrega aquí imágenes o gifs de tu aplicación en acción_
+
+---
+
+## 🔮 Futuras mejoras
+
+- 🌙 Implementar **dark mode avanzado**
+- 🌐 Internacionalización (**i18n**)
+- 🔒 Autenticación con JWT o OAuth
+- 📊 Integración con APIs externas
+
+---
+
+## 👤 Autor
+
+Desarrollado por **Roger Gutiérrez Martínez**
+
+- 🌐 [https://portfolio-roger2999.netlify.app/login]
+- 🐙 [https://github.com/Roger2999]
+
+---
