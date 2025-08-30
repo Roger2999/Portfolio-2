@@ -1,0 +1,17 @@
+.skills-container{
+    width: 600px;
+    max-width: 80%;
+    margin-bottom: 10rem ;
+    border-radius: 1rem;
+     box-shadow: 0 4px 24px rgba(51, 51, 51, 0.39);
+  transition: box-shadow 0.2s;
+}
+.projects-container{
+ text-align: center;
+  padding-top: 2rem;
+  font-size: 3rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+}
