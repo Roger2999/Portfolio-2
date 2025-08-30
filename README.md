@@ -102,7 +102,7 @@ _Agrega aquí imágenes o gifs de tu aplicación en acción_
 
 Desarrollado por **Roger Gutiérrez Martínez**
 
-- 🌐 [https://portfolio-roger2999.netlify.app/login]
+- 🌐 [https://portfolio-roger2999.netlify.app]
 - 🐙 [https://github.com/Roger2999]
 
 ---
