@@ -4,7 +4,7 @@ interface HeaderProps {
 export const Footer = ({ theme }: HeaderProps) => {
   return (
     <footer
-      className={`footer sm:footer-horizontal p-2 ${
+      className={`footer sm:footer-horizontal p-2 mt-20 ${
         theme == "dark" ? "bg-gray-700" : "bg-gray-200"
       }`}
     >

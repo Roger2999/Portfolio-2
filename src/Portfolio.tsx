@@ -14,7 +14,7 @@ export const Portfolio = ({ children }: Props) => {
     <>
       <div data-theme={theme} className={`${styles.container}`}>
         <Header />
-        <div className="theme flex justify-end p-10">
+        <div className="theme flex justify-end mr-9 mt-2">
           <SimpleButton
             className={`${theme == "light" ? "bg-yellow-100" : "bg-gray-500"}`}
             onClick={toggleTheme}

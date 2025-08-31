@@ -1,7 +1,6 @@
 .skills-container{
     width: 600px;
     max-width: 80%;
-    margin-bottom: 10rem ;
     border-radius: 1rem;
      box-shadow: 0 4px 24px rgba(51, 51, 51, 0.39);
   transition: box-shadow 0.2s;
