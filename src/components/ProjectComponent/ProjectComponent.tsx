@@ -4,7 +4,7 @@ interface Props {
   period: string;
   rol: string;
   description: string;
-  skills: string;
+  skills: `${string}•${string}•${string}•${string}`;
 }
 
 export const ProjectComponent = ({
