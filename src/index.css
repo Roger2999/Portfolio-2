@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Opcional: Importar temas de DaisyUI */
+@import "daisyui/src/theming/themes";
