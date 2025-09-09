@@ -72,7 +72,7 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
                 className="block size-6 group-data-open:hidden"
               />
               <XMarkIcon
-                aria-hidden="true"
+                aria-hidden="false"
                 className="hidden size-6 group-data-open:block"
               />
             </DisclosureButton>

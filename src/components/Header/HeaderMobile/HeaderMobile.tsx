@@ -1,4 +1,4 @@
-import { DisclosurePanel, DisclosureButton } from "@headlessui/react";
+import { DisclosurePanel, DisclosureButton, Transition } from "@headlessui/react";
 import { NavLink } from "react-router-dom";
 import type { HeaderProps } from "../types";
 import { SimpleButton } from "../../SimpleButton/SimpleButton";
@@ -10,6 +10,17 @@ export const HeaderMobile = ({ onCurrent, current, theme }: HeaderProps) => {
 
   return (
     <>
+    {// Mobile menu transition, envolver in Transition component for animation
+    }
+    <Transition
+                enter="transition duration-300 ease-out"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition duration-200 ease-in"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+   
       <DisclosurePanel className="md:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
           {current.map((item) => (
@@ -51,6 +62,7 @@ export const HeaderMobile = ({ onCurrent, current, theme }: HeaderProps) => {
           )}
         </div>
       </DisclosurePanel>
+              </Transition>
     </>
   );
 };

@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 10px;
+}
+.item{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-width: 3px;
+  height: 100px;
+  max-height: 80%;
+}
