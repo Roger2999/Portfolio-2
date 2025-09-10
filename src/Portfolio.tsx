@@ -16,7 +16,9 @@ export const Portfolio = ({ children }: Props) => {
         <Header />
         <div className="theme flex justify-end mr-9 mt-2">
           <SimpleButton
-            className={`${theme == "light" ? "bg-yellow-100" : "bg-gray-500"}`}
+            className={`rounded-full ${
+              theme == "light" ? "bg-yellow-100" : "bg-gray-500"
+            }`}
             onClick={toggleTheme}
           >
             {theme == "light" ? "🌞" : "🌙"}

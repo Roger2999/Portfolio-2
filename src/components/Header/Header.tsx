@@ -5,10 +5,10 @@ import { ThemeStore } from "../../stores";
 import { useState } from "react";
 const navigation = [
   { id: "1", name: "Home", to: "/homepage", current: false },
-  { id: "2", name: "Sobre mi", to: "/about", current: false },
   { id: "3", name: "Proyectos", to: "/projects", current: false },
   { id: "4", name: "Habilidades", to: "/skills", current: false },
   { id: "5", name: "Contacto", to: "/contact", current: false },
+  { id: "2", name: "Sobre mi", to: "/about", current: false },
 ];
 export const Header = () => {
   const [current, setCurrent] = useState(navigation);

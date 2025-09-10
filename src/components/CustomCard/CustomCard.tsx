@@ -3,11 +3,12 @@ import { ButtonNav } from "../../components";
 import { ThemeStore } from "../../stores";
 interface Props {
   img: string;
-  description: ReactNode;
+  description: string;
   title: string;
   theme: string | null;
+  skills: ReactNode;
 }
-export const CustomCard = ({ img, description, title }: Props) => {
+export const CustomCard = ({ img, description, title, skills }: Props) => {
   const theme = ThemeStore((state) => state.theme);
   return (
     <>
@@ -28,7 +29,17 @@ export const CustomCard = ({ img, description, title }: Props) => {
         >
           {title}
         </h5>
-        <div className="card-text">{description}</div>
+        <div className="card-text text-start">
+          <div className="card-text">
+            <p>{description}</p>
+          </div>
+          <div className="card-text">
+            <p>
+              <strong>Habilidades técnicas:</strong>
+              {skills}
+            </p>
+          </div>
+        </div>
         <div className="buttons-container">
           <ButtonNav label={"Ver proyectos"} type="button" path={"/projects"} />
           <ButtonNav label={"Contactar"} type={"button"} path={"/contact"} />

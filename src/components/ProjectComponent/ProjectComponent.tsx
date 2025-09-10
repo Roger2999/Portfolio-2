@@ -17,7 +17,7 @@ export const ProjectComponent = ({
   return (
     <>
       <article className={styles.container1}>
-        <div className={styles.container2}>
+        <div className={`mb-4 border-l-2 border-teal-400 ${styles.container2}`}>
           <div className={styles.periodeContainer}>
             <p
               className={`${
