@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 const THEME_KEY = "theme_key";
-type Theme = string | null;
+export type Theme = string | null;
 
 interface ThemeState {
   theme: Theme;
