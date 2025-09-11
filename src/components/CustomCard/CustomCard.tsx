@@ -43,6 +43,16 @@ export const CustomCard = ({ img, description, title, skills }: Props) => {
         <div className="buttons-container">
           <ButtonNav label={"Ver proyectos"} type="button" path={"/projects"} />
           <ButtonNav label={"Contactar"} type={"button"} path={"/contact"} />
+          <a
+            href="public/CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download={"CV-Roger-Gutierrez-Martinez.pdf"}
+          >
+            <button type="button" className="btn btn-info">
+              Descargar CV
+            </button>
+          </a>
         </div>
       </div>
     </>

@@ -1,19 +1,21 @@
+import { useThemeClasses } from "../../../hooks/useThemeClasses";
 import { ContactCard } from "./ContactCard/ContactCard";
 export const ContactPage = () => {
+  const { bgClass } = useThemeClasses();
   return (
     <>
       <section
-        className="contact-content flex flex-col items-center justify-center 
-      bg-gray-200 shadow-2xl w-full max-w-3xl rounded-2xl text-center p-4 sm:p-8 overflow-hidden"
+        className={`"contact-content flex flex-col items-center justify-center 
+      ${bgClass} shadow-2xl w-full max-w-3xl rounded-2xl text-center p-4 sm:p-8 overflow-hidden"`}
       >
         <article
-          className="flex flex-col items-center justify-center mt-6 bg-white 
-        rounded-xl shadow-md p-4 sm:p-6 w-full max-w-md text-left"
+          className={`flex flex-col items-center justify-center mt-6
+        rounded-xl shadow-md p-4 sm:p-6 w-full max-w-md text-left ${bgClass}`}
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-center">
             Información de contacto
           </h2>
-          <ul className="space-y-2 text-gray-700 text-start p-4">
+          <ul className="space-y-2  text-start p-4">
             <li>
               <span className="font-semibold">Nombre:</span> Roger Gutiérrez
               Martínez
@@ -46,7 +48,6 @@ export const ContactPage = () => {
               className: "w-20 h-20 md:w-22 md:h-22",
               src: "https://cdn-icons-png.flaticon.com/128/733/733585.png",
             }}
-            // stackProps={{ className: "bg-primary rounded-full" }}
           />
           <ContactCard
             href="https://t.me/rogergm99"
@@ -60,7 +61,6 @@ export const ContactPage = () => {
               className: "w-20 h-20 md:w-22 md:h-22",
               src: "https://cdn-icons-png.flaticon.com/128/2111/2111646.png",
             }}
-            // stackProps={{ className: "bg-accent rounded-full" }}
           />
           <ContactCard
             href="https://github.com/Roger2999"
@@ -74,7 +74,6 @@ export const ContactPage = () => {
               className: "w-20 h-20 md:w-22 md:h-22",
               src: "https://cdn-icons-png.flaticon.com/128/25/25231.png",
             }}
-            //   stackProps={{ className: "bg-secondary rounded-full" }}
           />
         </article>
       </section>
