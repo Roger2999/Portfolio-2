@@ -1,40 +1,26 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import styles from "./CustomForm.module.css";
-import { schema } from "../../models/form.model";
-import { useLogin } from "../../hooks/useLogin";
-import { CustomInput } from "../../components";
-import { ThemeStore } from "../../stores";
+import { ThemeStore } from "../../../stores";
+import { CustomInput } from "../../CustomInput/CustomInput";
+import { useMutationLogin } from "../../../hooks/useMutationUsers";
+import { useForms } from "../../../hooks/useForms";
+import styles from "../CustomForm.module.css";
+import { schemaLogin } from "../../../models/form.model";
 
-interface FormData {
+export interface FormData {
   email: string;
   password: string;
 }
-export const CustomForm = () => {
+export const LoginForm = () => {
   const theme = ThemeStore((state) => state.theme);
-  const mutation = useLogin();
-  const { mutate, isPending, isError, error } = mutation;
+  const { control, handleSubmit, errors } = useForms(schemaLogin);
+  const { loginMutation } = useMutationLogin();
+  const { isPending, isError, error } = loginMutation;
+  const onSubmitLogin = (data: FormData) => loginMutation.mutate(data);
 
-  const onSubmit = async (data: FormData) => {
-    mutate(data);
-  };
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-    mode: "onBlur",
-  });
   return (
     <>
       <div className={styles.formContainer}>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmitLogin)}
           className={`${styles.form} ${theme === "dark" && styles.formDark}`}
         >
           <CustomInput
@@ -53,7 +39,7 @@ export const CustomForm = () => {
           />
           <button
             type="submit"
-            className={`btn btn btn-success  ${styles.btn}`}
+            className={`btn btn-success  ${styles.btn}`}
             disabled={isPending}
           >
             {isPending ? (

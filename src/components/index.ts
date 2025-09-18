@@ -1,6 +1,6 @@
 export * from "./ButtonNav/ButtonNav";
 export * from "./CustomCard/CustomCard";
-export * from "./CustomForm/CustomForm";
+export * from "./CustomInput/CustomInput";
 export * from "./CustomInput/CustomInput";
 export * from "./Header/Header";
 export * from "./PageNotFound/PageNotFound";
@@ -8,3 +8,5 @@ export * from "./PrivateGuard/PrivateGuard";
 export * from "./SimpleButton/SimpleButton";
 export * from "./ProjectComponent/ProjectComponent";
 export * from "./Footer/Footer";
+export * from "./Forms/LoginForm/LoginForm";
+export * from "./Forms/RegisterForm/RegisterForm";

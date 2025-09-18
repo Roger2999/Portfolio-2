@@ -47,6 +47,11 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
             </div>
           </div>
           <div className="hidden md:block">
+            <NavLink to="./register">
+              <SimpleButton className="btn btn-outline btn-success">
+                Register
+              </SimpleButton>
+            </NavLink>
             {isAuthenticated ? (
               <SimpleButton
                 onClick={logout}

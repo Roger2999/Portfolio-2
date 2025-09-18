@@ -6,7 +6,7 @@ import { ThemeStore } from "../../../stores";
 
 export const AboutPage = () => {
   const theme = ThemeStore((state) => state.theme);
-  const { textClass, borderClass, bgClass } = useThemeClasses(theme);
+  const { textClass, borderClass, bgClass } = useThemeClasses();
 
   return (
     <SectionContainer
