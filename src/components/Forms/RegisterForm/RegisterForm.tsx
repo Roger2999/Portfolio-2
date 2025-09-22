@@ -6,16 +6,18 @@ import { useMutationRegister } from "../../../hooks/useMutationUsers";
 import { schemaRegister } from "../../../models/form.model";
 import { useForms } from "../../../hooks/useForms";
 
-export interface FormData {
+export interface RegisterFormData {
   email: string;
   password: string;
 }
+
 export const RegisterForm = () => {
   const theme = ThemeStore((state) => state.theme);
   const { registerMutation } = useMutationRegister();
   const { isPending, isError, error } = registerMutation;
   const { control, handleSubmit, errors } = useForms(schemaRegister);
-  const onSubmitRegister = (data: FormData) => registerMutation.mutate(data);
+  const onSubmitRegister = (data: RegisterFormData) =>
+    registerMutation.mutate(data);
 
   return (
     <>

@@ -3,15 +3,14 @@ import { useForm } from "react-hook-form";
 import type { ZodObject, ZodEmail, ZodString } from "zod";
 import type { $strip } from "zod/v4/core";
 
+interface SchemaData {
+  schema: ZodObject<
+    { email: ZodEmail; password: ZodString; confirmPassword?: ZodString },
+    $strip
+  >;
+}
 //custom hook reutilizable para formularios
-export const useForms = (
-  schema:
-    | ZodObject<
-        { email: ZodEmail; password: ZodString; confirmPassword: ZodString },
-        $strip
-      >
-    | ZodObject<{ email: ZodEmail; password: ZodString }, $strip>
-) => {
+export const useForms = (schema: SchemaData["schema"]) => {
   const {
     control,
     handleSubmit,

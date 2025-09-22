@@ -1,11 +1,13 @@
-import { ThemeStore } from "../../../stores";
+import { AuthStore, ThemeStore } from "../../../stores";
 import { CustomInput } from "../../CustomInput/CustomInput";
 import { useMutationLogin } from "../../../hooks/useMutationUsers";
 import { useForms } from "../../../hooks/useForms";
 import styles from "../CustomForm.module.css";
 import { schemaLogin } from "../../../models/form.model";
+import { Toast } from "../../Toast/Toast";
+import { toastStore } from "../../../stores/toastStore/toastStore";
 
-export interface FormData {
+export interface LoginFormData {
   email: string;
   password: string;
 }
@@ -14,8 +16,20 @@ export const LoginForm = () => {
   const { control, handleSubmit, errors } = useForms(schemaLogin);
   const { loginMutation } = useMutationLogin();
   const { isPending, isError, error } = loginMutation;
-  const onSubmitLogin = (data: FormData) => loginMutation.mutate(data);
+  const isAuthenticated = AuthStore((state) => state.isAuthenticated);
+  const email = AuthStore((state) => state.email);
+  const showToast = toastStore((state) => state.showToast);
+  const setShowToast = toastStore((state) => state.setShowToast);
+  const closeToast = toastStore((state) => state.closeToast);
 
+  const onSubmitLogin = (data: LoginFormData) => {
+    if (isAuthenticated && data.email === email) {
+      setShowToast(true);
+      return;
+    }
+    loginMutation.mutate(data);
+    setShowToast(true);
+  };
   return (
     <>
       <div className={styles.formContainer}>
@@ -53,6 +67,19 @@ export const LoginForm = () => {
           </div>
         </form>
       </div>
+      {showToast && (
+        <>
+          <Toast
+            message={`${
+              isAuthenticated
+                ? "Ya se encuentra logeado"
+                : "Loegado con exito ✅"
+            }`}
+            onClose={closeToast}
+            duration={3000}
+          />
+        </>
+      )}
     </>
   );
 };

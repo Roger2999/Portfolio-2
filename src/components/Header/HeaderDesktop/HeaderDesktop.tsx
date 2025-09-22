@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 import type { HeaderProps } from "../types";
 import { AuthStore } from "../../../stores";
+import "./HeaderDesktop.css";
 import { SimpleButton } from "../../SimpleButton/SimpleButton";
 export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
   const isAuthenticated = AuthStore((state) => state.isAuthenticated);
@@ -47,25 +48,27 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
             </div>
           </div>
           <div className="hidden md:block">
-            <NavLink to="./register">
-              <SimpleButton className="btn btn-outline btn-success">
-                Register
-              </SimpleButton>
-            </NavLink>
-            {isAuthenticated ? (
-              <SimpleButton
-                onClick={logout}
-                className="btn btn-outline btn-success"
-              >
-                Logout
-              </SimpleButton>
-            ) : (
-              <NavLink to="./login">
+            <div className="auth-container ml-4 flex items-center md:ml-10">
+              <NavLink to="./register">
                 <SimpleButton className="btn btn-outline btn-success">
-                  Login
+                  Registrarse
                 </SimpleButton>
               </NavLink>
-            )}
+              {isAuthenticated ? (
+                <SimpleButton
+                  onClick={logout}
+                  className="btn btn-outline btn-success"
+                >
+                  Logout
+                </SimpleButton>
+              ) : (
+                <NavLink to="./login">
+                  <SimpleButton className="btn btn-outline btn-success">
+                    Login
+                  </SimpleButton>
+                </NavLink>
+              )}
+            </div>
           </div>
           <div className="-mr-2 flex md:hidden">
             {/* Mobile menu button */}

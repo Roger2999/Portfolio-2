@@ -3,7 +3,6 @@ import {
   type Control,
   type FieldError,
   type FieldErrorsImpl,
-  type GlobalError,
   type Merge,
 } from "react-hook-form";
 
@@ -32,21 +31,17 @@ interface Props {
       }
   >;
 
-  error: Partial<
-    FieldErrorsImpl<
-      | {
+  error:
+    | FieldError
+    | Merge<
+        FieldError,
+        FieldErrorsImpl<{
           email: string;
           password: string;
           confirmPassword: string;
-        }
-      | {
-          email: string;
-          password: string;
-        }
-    >
-  > & {
-    root?: Record<string, GlobalError> & GlobalError;
-  };
+        }>
+      >
+    | undefined;
   type: "text" | "email" | "password" | "number";
 }
 export const CustomInput = ({ label, name, control, error, type }: Props) => {
