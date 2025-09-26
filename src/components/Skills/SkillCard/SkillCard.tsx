@@ -1,4 +1,3 @@
-import "./SkillCard.css";
 import type { ReactNode } from "react";
 interface Props {
   name: string;

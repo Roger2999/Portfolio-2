@@ -1,21 +1,22 @@
+import { pb } from "../lib/pb";
 
-export const loginService = async (data: { email: string; password: string }) => {
-  const response = await fetch("https://reqres.in/api/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": "reqres-free-v1",
-    },
-    body: JSON.stringify({
-      email: data.email,
-      password: data.password,
-    }),
-  });
-  if (!response.ok) {
-    throw new Error(`Error in response: ${response.status} ${response.statusText}`);
-  }
-  const result = await response.json();
-  console.log("Respuesta registro:", result);
-
-  return result;
+export const registerUser = async (email: string, password: string) => {
+  const data = { email, password, passwordConfirm: password };
+  const user = await pb.collection("users").create(data);
+  //enviar email de verificacion
+  await pb.collection("users").requestVerification(email);
+  return {
+    user,
+    success: true,
+    message: "Usuario registrado correctamente, por favor verifica tu email",
+  };
+};
+export const loginUser = async (email: string, password: string) => {
+  const authData = await pb
+    .collection("users")
+    .authWithPassword(email, password);
+  return authData;
+};
+export const logoutUser = async () => {
+  pb.authStore.clear();
 };

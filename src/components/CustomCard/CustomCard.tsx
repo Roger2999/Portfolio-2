@@ -29,11 +29,11 @@ export const CustomCard = ({ img, description, title, skills }: Props) => {
         >
           {title}
         </h5>
-        <div className="card-text text-start">
-          <div className="card-text">
+        <div className="card-text-container text-start">
+          <div className="card-text-description">
             <p>{description}</p>
           </div>
-          <div className="card-text">
+          <div className="card-text-skills">
             <p>
               <strong>Habilidades técnicas:</strong>
               {skills}

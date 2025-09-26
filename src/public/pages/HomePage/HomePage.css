@@ -97,7 +97,7 @@ body {
   .card {
     max-width: 70dvw;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
   .image-perfil {
     max-width: 320px;
@@ -110,12 +110,23 @@ body {
   .card-bodyy {
     padding-top: 0;
   }
+    .card-text{
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .card-text p{
+    margin-bottom: 2rem;
+  }
 }
 @media (max-width: 600px) {
   .card {
     flex-direction: column;
     margin-top: 50px;
     min-width: 90%;
+  }
+  .card-title{
+    text-align: center;
+    margin: 0;
   }
   .image-perfil {
     max-width: 220px;
@@ -127,8 +138,11 @@ body {
   .card-bodyy {
     padding: 18px 8px;
   }
-  .card-text {
-    padding: 5px;
+  .card-text-container {
+    padding: 10px;
+  }
+  .card-text-description {
+    margin-bottom: 1rem;
   }
   .buttons-container {
     flex-direction: column;

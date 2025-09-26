@@ -10,7 +10,7 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
   return (
     <>
       <div className="mx-auto  px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center justify-between gap-4">
           <div className="flex items-center">
             <div className="shrink-0">
               <img
@@ -20,14 +20,14 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
               />
             </div>
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+              <div className="flex items-baseline space-x-4">
                 {current.map((item) => (
                   <NavLink
                     key={item.name}
                     to={item.to}
                     onClick={() => onCurrent && onCurrent(item.id)}
                     aria-current={item.current ? "page" : undefined}
-                    className={`block rounded-md px-3 py-2 text-base font-medium ${
+                    className={`rounded-md px-2 py-2 text-base font-medium ${
                       item.current && theme == "dark"
                         ? "bg-gray-900 text-white"
                         : item.current &&
@@ -46,17 +46,22 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
               </div>
             </div>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden md:flex flex-wrap gap-2 items-center justify-end min-w-[200px]">
+            <NavLink to="./register">
+              <SimpleButton className="btn btn-outline btn-success mx-0">
+                Registrase
+              </SimpleButton>
+            </NavLink>
             {isAuthenticated ? (
               <SimpleButton
                 onClick={logout}
-                className="btn btn-outline btn-success"
+                className="btn btn-outline btn-success mx-0"
               >
                 Logout
               </SimpleButton>
             ) : (
               <NavLink to="./login">
-                <SimpleButton className="btn btn-outline btn-success">
+                <SimpleButton className="btn btn-outline btn-success mx-0">
                   Login
                 </SimpleButton>
               </NavLink>

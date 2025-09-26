@@ -10,6 +10,7 @@ import {
   ProjectsPage,
   SkillsPage,
 } from "./public/pages";
+import { Register } from "./public/pages/Register/Register";
 
 export const PortfolioRouter = () => {
   return (
@@ -18,6 +19,7 @@ export const PortfolioRouter = () => {
         <PageNotFound>
           <Route path="/" element={<Navigate to="/homepage" />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
