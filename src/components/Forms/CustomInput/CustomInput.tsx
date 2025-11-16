@@ -2,8 +2,32 @@ import { Controller, type Control, type FieldError } from "react-hook-form";
 
 interface Props {
   label: string;
-  name: "email" | "password";
-  control: Control<{ email: string; password: string }, unknown>;
+  name: "email" | "password" | "confirmPassword";
+  control:
+    | Control<
+        {
+          email: string;
+          password: string;
+          confirmPassword: string;
+        },
+        unknown,
+        {
+          email: string;
+          password: string;
+          confirmPassword: string;
+        }
+      >
+    | Control<
+        {
+          email: string;
+          password: string;
+        },
+        unknown,
+        {
+          email: string;
+          password: string;
+        }
+      >;
   error: FieldError | undefined;
   type: "text" | "email" | "password" | "number";
 }

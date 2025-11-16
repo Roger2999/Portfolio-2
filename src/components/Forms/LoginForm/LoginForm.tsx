@@ -1,21 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import styles from "./CustomForm.module.css";
-import { schema } from "../../models/form.model";
-import { useLogin } from "../../hooks/useLogin";
-import { CustomInput } from "../../components";
-import { ThemeStore } from "../../stores";
+import styles from "../RegisterForm/CustomForm.module.css";
+import { ThemeStore } from "../../../stores";
+import { useLoginMutation } from "../../../hooks/useAuthMutation";
+import { schemaLogin, type FormLoginData } from "../../../models/form.model";
+import { CustomInput } from "../CustomInput/CustomInput";
 
-interface FormData {
-  email: string;
-  password: string;
-}
-export const CustomForm = () => {
+export const LoginForm = () => {
   const theme = ThemeStore((state) => state.theme);
-  const mutation = useLogin();
-  const { mutate, isPending, isError, error } = mutation;
+  const loginMutation = useLoginMutation();
+  const { mutate, isPending, isError, error } = loginMutation;
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: FormLoginData) => {
     mutate(data);
   };
   const {
@@ -23,7 +19,7 @@ export const CustomForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(schemaLogin),
     defaultValues: {
       email: "",
       password: "",
@@ -53,7 +49,7 @@ export const CustomForm = () => {
           />
           <button
             type="submit"
-            className={`btn btn btn-success  ${styles.btn}`}
+            className={`btn btn-success  ${styles.btn}`}
             disabled={isPending}
           >
             {isPending ? (

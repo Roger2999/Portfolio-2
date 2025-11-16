@@ -1,9 +1,9 @@
-import { CustomForm } from "../../../components";
+import { LoginForm } from "../../../components";
 
 export const Login = () => {
   return (
     <>
-      <CustomForm />
+      <LoginForm />
     </>
   );
 };

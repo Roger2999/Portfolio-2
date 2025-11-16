@@ -1,43 +1,56 @@
+import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { SimpleButton } from "../SimpleButton/SimpleButton";
 
 interface ModalProps {
-  id: string;
+  id?: string;
   modalTitle?: string;
   description?: string[] | string;
-  buttonProps: React.ComponentPropsWithRef<"button">;
+  isOpen: boolean;
+  onClose: () => void;
 }
-export const Modal = ({
+
+export const Modal: React.FC<ModalProps> = ({
   id,
   modalTitle,
   description,
-  buttonProps,
-}: ModalProps) => {
-  return (
-    <>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      {modalTitle === "React" && <button {...buttonProps} />}
+  isOpen,
+  onClose,
+}) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [isOpen, onClose]);
 
-      {/*Se le da el id a dialog para tener referencia al presionar el boton que va a llamarlo a traves de ese id*/}
-      <dialog id={id} className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">{modalTitle}</h3>
-          <p className="py-4">
-            {Array.isArray(description)
-              ? description.map((item) => (
-                  <SimpleButton className="btn btn-dash" key={item}>
-                    {item}
-                  </SimpleButton>
-                ))
-              : description}
-          </p>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
-            </form>
-          </div>
+  if (!isOpen) return null;
+  return createPortal(
+    <div className="modal modal-open">
+      <div className="modal-box relative">
+        <h3 id={id ? `${id}-title` : undefined} className="font-bold text-lg">
+          {modalTitle}
+        </h3>
+
+        <div className="py-4">
+          {Array.isArray(description)
+            ? description.map((item) => (
+                <SimpleButton className="btn btn-dash mr-2 mb-2" key={item}>
+                  {item}
+                </SimpleButton>
+              ))
+            : description}
         </div>
-      </dialog>
-    </>
+
+        <div className="modal-action">
+          <button className="btn" onClick={onClose}>
+            Close
+          </button>
+        </div>
+      </div>
+    </div>,
+    document.body
   );
 };
