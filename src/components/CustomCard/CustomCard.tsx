@@ -30,7 +30,7 @@ export const CustomCard = ({ img, description, title, skills }: Props) => {
           {title}
         </h5>
         <div className="card-text-container text-start">
-          <div className="card-text-description">
+          <div className="card-text-description mb-5">
             <p>{description}</p>
           </div>
           <div className="card-text-skills">

@@ -1,14 +1,16 @@
 import { ThemeStore } from "../../stores";
 import styles from "./ProjectComponent.module.css";
 interface Props {
-  period: string;
+  start: string;
+  end:string
   rol: string;
   description: string;
-  skills: `${string}•${string}•${string}•${string}`;
+  skills: string[];
 }
 
 export const ProjectComponent = ({
-  period,
+  start,
+  end,
   rol,
   description,
   skills,
@@ -18,15 +20,19 @@ export const ProjectComponent = ({
     <>
       <article className={styles.container1}>
         <div className={`mb-4 border-l-2 border-teal-400 ${styles.container2}`}>
-          <div className={styles.periodeContainer}>
-            <p
-              className={`${
+            <div
+              className={`periode-container flex flex-col flex-1 justify-between items-center font-semibold h-[250px] py-3 ${styles.periodeContainer} ${
                 theme === "dark" ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              {period}
-            </p>
-          </div>
+             <span className={`${
+                theme === "dark" ? "text-gray-200" : "text-gray-600"
+              }`}>Desde: <span>{new Date(start).toLocaleDateString("es-Es",{day:"2-digit",month:"2-digit",year:"numeric",})}</span></span>
+             <span className={`${
+                theme === "dark" ? "text-gray-200" : "text-gray-600"
+              }`}>Hasta: <span>{new Date(end).toLocaleDateString("es-Es",{day:"2-digit",month:"2-digit", year:"numeric"})}</span></span>
+            </div>
+         
           <div className={styles.bodyContainer}>
             <p
               style={
@@ -38,18 +44,23 @@ export const ProjectComponent = ({
               {rol}
             </p>
             <p
-              style={theme === "dark" ? { color: "white" } : { color: "black" }}
+              className={`${styles.description} ${theme === "dark" ? "text-gray-300":"text-gray-800"}`}
             >
               {description}
             </p>
-            <p
-              className={`${
+            <div
+              className={`flex justify-start mt-8 flex-wrap gap-3 ${
                 theme === "dark" ? "text-gray-400" : "text-gray-400"
               }`}
             >
-              {" "}
-              {skills}
-            </p>
+              {skills
+                ? skills.map((s, index) => (
+                    <p key={index} className="badge badge-primary font-semibold p-3 sm:w-auto w-full">
+                      {s}
+                    </p>
+                  ))
+                : null}
+            </div>
           </div>
         </div>
       </article>

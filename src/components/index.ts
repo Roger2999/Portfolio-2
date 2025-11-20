@@ -9,3 +9,4 @@ export * from "./Footer/Footer";
 export * from "./Forms/LoginForm/LoginForm";
 export * from "./Forms/RegisterForm/RegisterForm";
 export * from "./Forms/CustomInput/CustomInput";
+export * from "./Forms/CustomSelect/CustomSelect";

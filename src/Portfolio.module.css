@@ -1,11 +1,14 @@
-.container{
+.container {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
 }
-.content{
+
+.content {
     flex: 1;
     display: flex;
+    width: 100%;
+    min-height: auto;
     justify-content: center;
     align-items: center;
     flex-direction: column;

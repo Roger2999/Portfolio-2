@@ -1,41 +1,18 @@
-import { Controller, type Control, type FieldError } from "react-hook-form";
+import { Controller, type Control, type FieldError, type FieldPath, type FieldValues } from "react-hook-form";
 
-interface Props {
+interface Props<T extends FieldValues> {
   label: string;
-  name: "email" | "password" | "confirmPassword";
-  control:
-    | Control<
-        {
-          email: string;
-          password: string;
-          confirmPassword: string;
-        },
-        unknown,
-        {
-          email: string;
-          password: string;
-          confirmPassword: string;
-        }
-      >
-    | Control<
-        {
-          email: string;
-          password: string;
-        },
-        unknown,
-        {
-          email: string;
-          password: string;
-        }
-      >;
+  name: FieldPath<T>;
+  control: Control<T>;
   error: FieldError | undefined;
-  type: "text" | "email" | "password" | "number";
+  type: "text" | "email" | "password" | "number" | "date";
 }
-export const CustomInput = ({ label, name, control, error, type }: Props) => {
+
+export const CustomInput = <T extends FieldValues,>({ label, name, control, error, type }: Props<T>) => {
   return (
     <>
-      <div className={`form-group h-23`}>
-        <label className="floating-label" htmlFor={name}>
+      <div className={`form-group flex flex-col  items-center sm:h-20 h-28 w-full`}>
+        <label className="floating-label text-left font-semibold w-full" htmlFor={name}>
           {label}
         </label>
 
@@ -48,12 +25,12 @@ export const CustomInput = ({ label, name, control, error, type }: Props) => {
                 id={name}
                 {...field}
                 type={type}
-                className={`input ${error ? "input input-error" : ""}`}
+                className={`input w-full ${error ? "input input-error" : ""}`}
               />
             </>
           )}
         />
-        {error && <p className={"text-red-400"}>{error.message}</p>}
+        {error && <p className={"w-full text-red-400 text-left"}>{error.message}</p>}
       </div>
     </>
   );

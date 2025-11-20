@@ -1,16 +1,19 @@
 import { CustomCard, SimpleButton } from "../../../components";
+
 import { ThemeStore } from "../../../stores";
 import "./HomePage.css";
+
 export const HomePage = () => {
   const theme = ThemeStore((state) => state.theme);
+
   return (
     <>
       <div className="card-container ">
-        <div className={`card ${theme == "dark" ? "bg-gray-700" : ""}`}>
+        <div className={`card border-t-4 border-blue-500 ${theme == "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
           <CustomCard
             title={"Frontend developer junior"}
             description={
-              "Creación de aplicaciones modernas con rendimiento óptimo y diseño intuitivo Comprometido con estándares web y soluciones innovadoras"
+              "Desarrollador frontend con especial enfoque en React y TypeScript, creando interfaces accesibles y experiencias de usuario excepcionales. Apasionado por el código limpio y el rendimiento. Este portfolio refleja mi compromiso con soluciones modernas, diseño intuitivo y estándares web de calidad."
             }
             skills={
               <>

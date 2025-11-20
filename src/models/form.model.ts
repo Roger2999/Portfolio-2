@@ -22,3 +22,20 @@ export const schemaLogin = z.object({
     .min(6, "La contraseña debe tener un mínimo de 6 caracteres"),
 });
 export type FormLoginData = z.infer<typeof schemaLogin>;
+
+export const schemaProjects = z.object({
+  rol: z.string().min(1, "Campo obligatorio"),
+  description: z.string().min(1, "Campo obligatorio"),
+  startDate: z.string().min(1, "La fecha de inicio es obligatoria"),
+  endDate: z.string().min(1, "La fecha de fin es obligatoria"),
+  technologies: z.array(z.string()).min(1, "Debe seleccionar al menos una tecnología"),
+}).refine((data) => {
+  if (data.startDate && data.endDate) {
+    return new Date(data.startDate) <= new Date(data.endDate);
+  }
+  return true;
+}, {
+  message: "La fecha de inicio debe ser anterior o igual a la fecha de fin",
+  path: ["endDate"],
+});
+export type FormProjectData = z.infer<typeof schemaProjects>;
