@@ -1,16 +1,16 @@
+import { ModalContext } from "../../../context/ModalContext/ModalContext";
 import { frontendSkills as skills } from "../../../data/skillsData";
 import { ThemeStore } from "../../../stores";
-import { Modal } from "../../Modal/Modal";
+import { ModalPortal } from "../../Modal/ModalPortal";
+import { SimpleButton } from "../../SimpleButton/SimpleButton";
 import { SkillCard } from "../SkillCard/SkillCard";
 import SkillCategory from "../SkillCategory/SkillCategory";
-import { useState } from "react";
-
-type SkillType = { name: string; description: string | string[] };
+import { useContext } from "react";
 
 const SkillsSection = () => {
   const theme = ThemeStore((state) => state.theme);
-  const [selectedSkill, setSelectedSkill] = useState<SkillType | null>(null);
 
+  const { openModal, setOpenModal } = useContext(ModalContext);
   return (
     <SkillCategory
       title="Frontend"
@@ -21,30 +21,37 @@ const SkillsSection = () => {
       {skills.map((skill) => (
         <SkillCard key={skill.name} theme={theme} {...skill}>
           {skill.name === "React" && (
-            <button
-              type="button"
-              className="btn btn-dash rounded-full mt-2"
-              onClick={() =>
-                setSelectedSkill({
-                  name: skill.name,
-                  description: skill.description,
-                })
-              }
-            >
-              +
-            </button>
+            <>
+              <button
+                className="btn btn-dash rounded-full mt-3"
+                onClick={() => setOpenModal(true)}
+              >
+                +
+              </button>
+              <ModalPortal openModal={openModal} setOpenModal={setOpenModal}>
+                <h3
+                  id={skill.id ? `${skill.id}-title` : undefined}
+                  className="font-bold text-lg"
+                >
+                  {skill.name}
+                </h3>
+                <div className="py-4">
+                  {Array.isArray(skill.description)
+                    ? skill.description.map((item) => (
+                        <SimpleButton
+                          className="btn btn-dash mr-2 mb-2"
+                          key={item}
+                        >
+                          {item}
+                        </SimpleButton>
+                      ))
+                    : skill.description}
+                </div>
+              </ModalPortal>
+            </>
           )}
         </SkillCard>
       ))}
-
-      {/* Un solo Modal que muestra la skill seleccionada (se renderiza fuera de las cards) */}
-      <Modal
-        id={selectedSkill?.name}
-        modalTitle={selectedSkill?.name}
-        description={selectedSkill?.description ?? ""}
-        isOpen={!!selectedSkill}
-        onClose={() => setSelectedSkill(null)}
-      />
     </SkillCategory>
   );
 };

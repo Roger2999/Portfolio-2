@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import type { HeaderProps } from "../types";
 import { AuthStore } from "../../../stores";
 import { SimpleButton } from "../../SimpleButton/SimpleButton";
+import "./HeaderDesktop.css";
 export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
   const isAuthenticated = AuthStore((state) => state.isAuthenticated);
   const logout = AuthStore((state) => state.logout);
@@ -11,7 +12,7 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
     <>
       <div className="mx-auto  px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
-          <div className="flex items-center">
+          <div className="flex items-center gap-8">
             <div className="shrink-0">
               <img
                 alt="Portfolio"
@@ -19,15 +20,15 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
                 className="size-8"
               />
             </div>
-            <div className="hidden md:block">
-              <div className="flex items-baseline space-x-4">
+            <div className="nav-btns-container md:block">
+              <div className="flex items-center gap-5">
                 {current.map((item) => (
                   <NavLink
                     key={item.name}
                     to={item.to}
                     onClick={() => onCurrent && onCurrent(item.id)}
                     aria-current={item.current ? "page" : undefined}
-                    className={`rounded-md px-2 py-2 text-base font-medium ${
+                    className={`rounded-md px-2 py-2 text-base font-semibold ${
                       item.current && theme == "dark"
                         ? "bg-gray-900 text-white"
                         : item.current &&
@@ -46,10 +47,10 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
               </div>
             </div>
           </div>
-          <div className="hidden md:flex flex-wrap gap-2 items-center justify-end min-w-[200px]">
+          <div className="login-container md:flex items-center ml-5">
             <NavLink to="./register">
-              <SimpleButton className="btn btn-outline btn-success mx-0">
-                Registrase
+              <SimpleButton className="btn btn-outline btn-success">
+                Registrarse
               </SimpleButton>
             </NavLink>
             {isAuthenticated ? (

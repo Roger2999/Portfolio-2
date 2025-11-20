@@ -18,9 +18,9 @@ export const PortfolioRouter = () => {
       <Portfolio>
         <PageNotFound>
           <Route path="/" element={<Navigate to="/homepage" />} />
+          <Route path="/homepage" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/homepage" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/skills" element={<SkillsPage />} />

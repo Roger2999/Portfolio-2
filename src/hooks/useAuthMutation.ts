@@ -24,7 +24,7 @@ export const useRegisterMutation = () => {
     mutationFn: (data: FormRegisterData) =>
       registerUser(data.email, data.password),
     onSuccess: (data) => {
-      console.log(`Usuario registrado: ${data.id}`);
+      console.log(`Usuario registrado: ${data.user}`);
     },
     onError: (error) => console.log(error.message),
   });
