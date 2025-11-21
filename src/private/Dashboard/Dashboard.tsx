@@ -45,7 +45,7 @@ export const Dashboard = () => {
     
       <div className="dashboard-container flex flex-col justify-start items-center w-full gap-6 p-4">
         {/* Formulario */}
-        <h1 className="w-full text-center font-bold text-gray-600 text-2xl mb-10">Gestión de proyectos</h1>
+        <h1 className="w-full text-center font-bold text-gray-600 text-2xl mt-10">Gestión de proyectos</h1>
         <div className="flex-container flex justify-center gap-20 w-full">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-4 w-[400px] max-w-[80%]">
             <CustomInput

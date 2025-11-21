@@ -68,7 +68,7 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
               </NavLink>
             )}
           </div>
-          <div className="-mr-2 flex md:hidden">
+          <div className="btn-mobile -mr-2 flex">
             {/* Mobile menu button */}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
               <span className="absolute -inset-0.5" />

@@ -6,9 +6,9 @@ interface Props {
 }
 export const BioSection = ({ bgClass }: Props) => {
   return (
-    <div className={`rounded-2xl shadow-2xl p-6 md:p-8 mb-12 mt-6 border-t-4 border-blue-500 ${bgClass}`}>
+    <div className={`rounded-2xl shadow-2xl p-8 border-t-4 border-blue-500 w-[60rem] max-w-[80%] mb-8 ${bgClass}`}>
       <div className="mb-8">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4 flex items-center">
+        <h2 className="flex items-center text-2xl md:text-3xl font-semibold mb-4 w-[600px]  max-w-[80%] ">
           <span className="w-3 h-3 bg-teal-400 rounded-full mr-2"></span>
           Hola <span className="ml-2">👋</span>
         </h2>

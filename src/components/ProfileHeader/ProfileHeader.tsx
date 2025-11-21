@@ -8,7 +8,7 @@ interface Props {
 }
 export const ProfileHeader = ({ borderClass, textClass }: Props) => {
   return (
-    <div className="text-center mb-12">
+    <div className="text-center p-5">
       <div className="inline-block relative mb-6">
         <img
           src={profileImage}

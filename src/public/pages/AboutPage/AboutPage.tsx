@@ -10,7 +10,7 @@ export const AboutPage = () => {
 
   return (
    
-      <div className="max-w-4xl mx-auto">
+      <div className="flex flex-col justify-center items-center w-full">
         <ProfileHeader textClass={textClass} borderClass={borderClass} />
         <BioSection theme={theme} bgClass={bgClass} />
       </div>
