@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Footer, Header, SimpleButton } from "./components";
+import { Footer, Header } from "./components";
 import styles from "./Portfolio.module.css";
 import { AuthStore, ThemeStore } from "./stores";
 import { NavLink } from "react-router-dom";
