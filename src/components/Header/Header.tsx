@@ -26,10 +26,10 @@ export const Header = () => {
 
   return (
     <>
-      <div className=" header min-h-full">
+      <div className=" header min-h-full w-full">
         <Disclosure
           as="nav"
-          className={`${
+          className={`w-full bg-gray-700 ${
             theme === "dark" ? "bg-gray-700" : "bg-gray-200 text-gray-800"
           }`}
         >

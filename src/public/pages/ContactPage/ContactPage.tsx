@@ -6,28 +6,28 @@ export const ContactPage = () => {
     <>
       <article
         className={`flex flex-col items-center justify-center mt-6
-        rounded-2xl border-blue-500 border-t-4 shadow-md p-4 sm:p-6 w-full max-w-md text-left ${theme==="dark"?"bg-gray-700":"bg-gray-300"}`}
+        rounded-2xl border-blue-500 border-t-4 shadow-md p-4 sm:p-6 w-[30rem] max-w-[80%] text-left ${theme==="dark"?"bg-gray-700":"bg-gray-300"}`}
       >
         <h2 className="text-2xl font-bold mb-4 text-center">
           Información de contacto
         </h2>
-        <ul className="space-y-2  text-start p-4">
+        <ul className="w-full space-y-2 font-semibold text-start p-4">
           <li>
-            <span className="font-semibold">Nombre:</span> Roger Gutiérrez
+            <span>Nombre: </span> Roger Gutiérrez
             Martínez
           </li>
           <li>
-            <span className="font-semibold">País:</span> Cuba
+            <span>País: </span> Cuba
           </li>
           <li>
-            <span className="font-semibold">Ciudad:</span> Matanzas
+            <span>Ciudad: </span> Matanzas
           </li>
-          <li>
-            <span className="font-semibold">Correo:</span>{" "}
+          <li className="break-words">
+            <span>Correo: </span>
             rogergutierrezmartinez900@gmail.com
           </li>
           <li>
-            <span className="font-semibold">Teléfono:</span> +53 54849352
+            <span>Teléfono:</span> +53 54849352
           </li>
         </ul>
       </article>
@@ -35,7 +35,7 @@ export const ContactPage = () => {
         <ContactCard
           href="https://whatsapp.com/roger"
           className="flex-1 flex items-center justify-center
-        w-20 h-20 md:w-24 md:h-24
+        w-24 h-24
         rounded-full bg-white shadow-lg
         border border-gray-300
         hover:shadow-xl hover:scale-105
@@ -48,7 +48,7 @@ export const ContactPage = () => {
         <ContactCard
           href="https://t.me/rogergm99"
           className="flex-1 flex items-center justify-center
-        w-20 h-20 md:w-24 md:h-24
+        w-24 h-24
         rounded-full bg-white shadow-lg
         border border-gray-300
         hover:shadow-xl hover:scale-105
@@ -61,7 +61,7 @@ export const ContactPage = () => {
         <ContactCard
           href="https://github.com/Roger2999"
           className="flex-1 flex items-center justify-center
-        w-20 h-20 md:w-24 md:h-24
+        w-24 h-24
         rounded-full bg-white shadow-lg
         border border-gray-300
         hover:shadow-xl hover:scale-105
