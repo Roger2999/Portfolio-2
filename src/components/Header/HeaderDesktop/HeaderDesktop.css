@@ -5,12 +5,13 @@
 
     .login-container {
         display: none;
+
     }
 
-    .btn-mobile {
+
+    .thema-btn {
         display: block;
     }
-
 }
 
 @media(min-width:840px) {

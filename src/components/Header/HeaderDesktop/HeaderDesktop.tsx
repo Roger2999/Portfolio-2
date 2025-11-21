@@ -2,16 +2,17 @@ import { DisclosureButton } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 import type { HeaderProps } from "../types";
-import { AuthStore } from "../../../stores";
+import { AuthStore, ThemeStore } from "../../../stores";
 import { SimpleButton } from "../../SimpleButton/SimpleButton";
 import "./HeaderDesktop.css";
 export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
   const isAuthenticated = AuthStore((state) => state.isAuthenticated);
   const logout = AuthStore((state) => state.logout);
+  const toggleTheme = ThemeStore((state) => state.toggleTheme);
   return (
     <>
       <div className="mx-auto  px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-4">
+        <div className="nav-mobile flex h-16 items-center justify-between gap-4">
           <div className="flex items-center gap-8">
             <div className="shrink-0">
               <img
@@ -47,7 +48,8 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
               </div>
             </div>
           </div>
-          <div className="login-container md:flex items-center ml-5">
+          <div className="rigth-box flex items-center  justify-end h-full w-64">
+          <div className="login-container flex justify-center items-center">
             <NavLink to="./register">
               <SimpleButton className="btn btn-outline btn-success">
                 Registrarse
@@ -68,6 +70,14 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
               </NavLink>
             )}
           </div>
+            <SimpleButton
+            className={`thema-btn rounded-full p-2 ${
+              theme == "light" ? "bg-yellow-100" : "bg-gray-500"
+            }`}
+            onClick={toggleTheme}
+          >
+            {theme == "light" ? "🌞" : "🌙"}
+          </SimpleButton>
           <div className="btn-mobile -mr-2 flex">
             {/* Mobile menu button */}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
@@ -83,6 +93,9 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
               />
             </DisclosureButton>
           </div>
+          </div>
+          
+          
         </div>
       </div>
     </>
