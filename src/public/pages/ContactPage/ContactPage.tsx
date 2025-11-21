@@ -6,12 +6,12 @@ export const ContactPage = () => {
     <>
       <article
         className={`flex flex-col items-center justify-center mt-6
-        rounded-2xl border-blue-500 border-t-4 shadow-md p-4 sm:p-6 w-[30rem] max-w-[80%] text-left ${theme==="dark"?"bg-gray-700":"bg-gray-300"}`}
+        rounded-2xl border-blue-500 border-t-4 shadow-md p-4 sm:p-6 w-[30rem] max-w-[80%] text-left font-mono ${theme==="dark"?"bg-gray-700":"bg-gray-300"}`}
       >
         <h2 className="text-2xl font-bold mb-4 text-center">
           Información de contacto
         </h2>
-        <ul className="w-full space-y-2 font-semibold text-start p-4">
+        <ul className="w-full space-y-2 text-start p-4">
           <li>
             <span>Nombre: </span> Roger Gutiérrez
             Martínez

@@ -11,7 +11,7 @@ interface Props<T extends FieldValues> {
 export const CustomInput = <T extends FieldValues,>({ label, name, control, error, type }: Props<T>) => {
   return (
     <>
-      <div className={`form-group flex flex-col  items-center sm:h-20 h-28 w-full`}>
+      <div className={`form-group flex flex-col  items-center h-20 w-full`}>
         <label className="floating-label text-left font-semibold w-full" htmlFor={name}>
           {label}
         </label>

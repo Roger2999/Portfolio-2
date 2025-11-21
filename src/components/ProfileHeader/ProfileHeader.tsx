@@ -15,12 +15,12 @@ export const ProfileHeader = ({ borderClass, textClass }: Props) => {
           alt="Roger"
           className={`w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 shadow-2xl ${borderClass}`}
         />
-        <div className="absolute inset-0 rounded-full border-2 border-teal-400 animate-ping opacity-20"></div>
+        <div className="absolute inset-5 rounded-full border-2 border-teal-400 animate-ping opacity-20"></div>
       </div>
       <h1 className={`text-4xl md:text-5xl font-mono mb-2 ${textClass}`}>
         Róger Gutiérrez Martínez
       </h1>
-      <p className="text-xl text-teal-600 font-medium">
+      <p className="text-xl text-teal-600 font-mono font-medium">
         Desarrollador Frontend React
       </p>
     </div>
