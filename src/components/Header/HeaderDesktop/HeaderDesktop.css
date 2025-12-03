@@ -1,0 +1,45 @@
+.menu-mobile-dark {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #e5e7eb;
+  position: absolute;
+  z-index: 70;
+}
+.menu-mobile-ligth {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #1f2937;
+  position: absolute;
+  z-index: 70;
+}
+
+@media (max-width: 840px) {
+  .nav-btns-container {
+    display: none;
+  }
+
+  .login-container {
+    display: none;
+  }
+
+  .thema-btn {
+    display: block;
+  }
+}
+
+@media (min-width: 840px) {
+  .btn-mobile {
+    display: none;
+  }
+  .menu-mobile {
+    display: none;
+  }
+  .menu-1 {
+    display: none;
+  }
+  .menu-2 {
+    display: none;
+  }
+}

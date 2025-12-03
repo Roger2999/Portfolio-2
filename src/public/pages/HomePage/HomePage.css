@@ -1,0 +1,155 @@
+/* Reset básico y mejores prácticas */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  width: 1000px;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(51, 51, 51, 0.39);
+  overflow: hidden;
+  transition: box-shadow 0.4s;
+}
+.card:hover {
+  box-shadow: 0 15px 32px rgba(49, 49, 49, 0.514);
+}
+
+.image-perfil {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 320px;
+  min-width: 200px;
+  max-width: 400px;
+  min-height: 320px;
+  max-height: 400px;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.image-perfil img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 5px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.card-bodyy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
+  text-align: start;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.card-text {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+.buttons-container {
+  display: flex;
+  gap: 25px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  justify-content: start;
+  width: 100%;
+}
+.buttons-container .btn{
+  color: aliceblue;
+  max-width: 160px;
+  min-width: 100px;
+}
+/* Responsive */
+@media (max-width: 900px) {
+  .card {
+    max-width: 70dvw;
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-perfil {
+    max-width: 320px;
+    min-width: 220px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 200px;
+    flex: 0 1 220px;
+  }
+  .card-bodyy {
+    padding-top: 0;
+  }
+    .card-text{
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .card-text p{
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    margin-top: 50px;
+    min-width: 90%;
+  }
+  .card-title{
+    text-align: center;
+    margin: 0;
+  }
+  .image-perfil {
+    max-width: 220px;
+    min-width: 120px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .card-bodyy {
+    padding: 18px 8px;
+  }
+  .card-text-container {
+    padding: 10px;
+  }
+  .card-text-description {
+    margin-bottom: 1rem;
+  }
+  .buttons-container {
+    flex-direction: column;
+  }
+  .buttons-container .btn {
+    max-width: 80%;
+    min-width: 80%;
+    margin: auto;
+  }
+}

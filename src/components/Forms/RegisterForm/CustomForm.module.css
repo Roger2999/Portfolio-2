@@ -1,0 +1,40 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  justify-content: space-between;
+  width: 550px;
+  padding: 3rem;
+  max-width: 90%;
+  box-shadow: 0 4px 24px rgba(51, 51, 51, 0.39);
+}
+
+.formDark {
+  background-color: rgb(52, 54, 58);
+}
+
+.btn {
+  width: fit-content;
+}
+
+.input {
+  height: 86px;
+}
+
+.error {
+  color: red;
+}
+
+.isInvalid {
+  border-color: red;
+}
