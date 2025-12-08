@@ -80,10 +80,11 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
                   Logout
                 </SimpleButton>
               ) : (
-                <NavLink to="./login">
-                  <SimpleButton className="btn btn-outline btn-success mx-0">
-                    Login
-                  </SimpleButton>
+                <NavLink
+                  to="./login"
+                  className={"btn btn-outline btn-success mx-0"}
+                >
+                  <SimpleButton className="">Login</SimpleButton>
                 </NavLink>
               )}
             </div>
