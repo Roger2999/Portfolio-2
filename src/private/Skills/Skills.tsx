@@ -19,7 +19,6 @@ export const Skills = () => {
         <SimpleButton
           onClick={() => {
             addSkill(skill);
-            console.log(skill);
           }}
         >
           Agregar

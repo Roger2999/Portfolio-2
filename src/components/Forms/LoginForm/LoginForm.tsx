@@ -11,7 +11,7 @@ export const LoginForm = () => {
   const theme = ThemeStore((state) => state.theme);
   // const loginMutation = useLoginMutation();
   // const { mutate, isPending, isError, error } = loginMutation;
-  const { mutate, isPending } = useLoginSupabaseMutation();
+  const { mutate, isPending, isError, error } = useLoginSupabaseMutation();
   const onSubmit = async (data: FormLoginData) => {
     mutate(data);
     reset();
@@ -62,10 +62,9 @@ export const LoginForm = () => {
               "Ingresar"
             )}
           </button>
-
-          {/* <div className="is-error mt-3 text-red-600 text-xs">
-            {isError && <span>{`Error en login: ${error.message}`}</span>}
-          </div> */}
+          <div className="is-error mt-3 text-red-600 text-xs">
+            {isError && <span>{`Error en login: ${error?.message}`}</span>}
+          </div>
         </form>
       </div>
     </>

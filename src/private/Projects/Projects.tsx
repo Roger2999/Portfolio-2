@@ -47,7 +47,7 @@ export const Projects = () => {
       <h1 className="w-full text-center font-bold text-gray-600 text-2xl mt-10">
         Gestión de proyectos
       </h1>
-      <div className="flex-container flex justify-center gap-20 w-full">
+      <div className="flex-container flex justify-center gap-20 w-full px-10 mb-10">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col items-center gap-4 w-[400px] max-w-[80%]"

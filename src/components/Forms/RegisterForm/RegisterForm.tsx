@@ -9,7 +9,7 @@ import { useRegisterSupabaseMutation } from "../../../hooks/useProjectsMutation"
 
 export const RegisterForm = () => {
   const theme = ThemeStore((state) => state.theme);
-  const { mutate, isPending } = useRegisterSupabaseMutation();
+  const { mutate, isPending, isError, error } = useRegisterSupabaseMutation();
   // const registerMutation = useRegisterMutation();
   // const { mutate, isPending, isError, error } = registerMutation;
   const onSubmit = async (data: { email: string; password: string }) => {
@@ -69,9 +69,9 @@ export const RegisterForm = () => {
               "Ingresar"
             )}
           </button>
-          {/* <div className="is-error mt-3 text-red-600 text-xs">
-            {isError && <span>{`Error en login: ${error.message}`}</span>}
-          </div> */}
+          <div className="is-error mt-3 text-red-600 text-xs">
+            {isError && <span>{`Error en login: ${error?.message}`}</span>}
+          </div>
         </form>
       </div>
     </>

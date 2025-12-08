@@ -12,7 +12,6 @@ interface SkillsState {
   skills: Skill[];
   addSkill: (skill: Skill) => void;
   removeSkill: (id: string) => void;
-  editSkill: (skillEdited: Skill) => Skill;
 }
 
 export const skillsStore = create(
@@ -26,14 +25,6 @@ export const skillsStore = create(
       removeSkill: (id) =>
         set((state) => ({
           skills: state.skills.filter((s) => s.id !== id),
-        })),
-      editSkill: (skillEdited) =>
-        set((state) => ({
-          skills: state.skills.map((skill) => {
-            skill.id === skillEdited.id
-              ? [...state.skills, skillEdited]
-              : skill;
-          }),
         })),
     }),
     { name: "skills-store" }

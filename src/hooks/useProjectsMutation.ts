@@ -7,13 +7,14 @@ import {
   registerSupabaseService,
 } from "../services/authSupabaseService";
 import { AuthStore } from "../stores";
+import { useNavigate } from "react-router-dom";
 
 export const useCreateProject = () => {
-  const queryCLient = useQueryClient();
+  const queryClient = useQueryClient();
   const { mutate, isPending, isError } = useMutation({
     mutationFn: (project: FormProjectData) => createProjectsService(project),
     onSuccess: () => {
-      queryCLient.invalidateQueries({ queryKey: ["projects"] });
+      queryClient.invalidateQueries({ queryKey: ["projects"] });
     },
     onError: (error) => {
       console.log(`Ha ocurrido un error ${error.message}`);
@@ -36,32 +37,34 @@ export const useDeleteProject = () => {
 };
 
 export const useRegisterSupabaseMutation = () => {
-  const { mutate, isPending } = useMutation({
+  const { mutate, isPending, isError, error } = useMutation({
     mutationFn: async (data: { email: string; password: string }) => {
-      registerSupabaseService(data.email, data.password);
+      const response = await registerSupabaseService(data.email, data.password);
+      return response;
     },
-    onSuccess: () => {
-      console.log("Usuario registrado con éxito");
+    onSuccess: (data) => {
+      alert(
+        `"Registro exitoso! Por favor, inicia sesión ${data.user?.email}."`
+      );
     },
     onError: (error) => {
-      console.log(`Ha ocurrido un error: ${error.message}`);
+      console.log(`Ha ocurrido un error ${error.message}`);
     },
   });
-  return { mutate, isPending };
+  return { mutate, isPending, isError, error };
 };
 export const useLoginSupabaseMutation = () => {
   const login = AuthStore((state) => state.login);
-  const { mutate, isPending } = useMutation({
+  const navigate = useNavigate();
+  const { mutate, isPending, isError, error } = useMutation({
     mutationFn: async (data: { email: string; password: string }) => {
       const response = await loginSupabaseService(data.email, data.password);
       return response;
     },
     onSuccess: (data) => {
       login(data.user.email!, data.session.access_token);
-    },
-    onError: (error) => {
-      console.log(`Ha ocurrido un error: ${error.message}`);
+      navigate("/private/manageProjects");
     },
   });
-  return { mutate, isPending };
+  return { mutate, isPending, isError, error };
 };
