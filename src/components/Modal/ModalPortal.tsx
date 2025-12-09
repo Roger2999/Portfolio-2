@@ -1,14 +1,19 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import "./ModalPortal.css";
+import type { Skill } from "../Skills/SkillSection/SkillSection";
 interface Props {
   children: ReactNode;
-  openModal: boolean;
-  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedSkill: Skill | null;
+  setSelectedSkill: React.Dispatch<React.SetStateAction<Skill | null>>;
 }
-export const ModalPortal = ({ children, openModal, setOpenModal }: Props) => {
+export const ModalPortal = ({
+  children,
+  selectedSkill,
+  setSelectedSkill,
+}: Props) => {
   const closeModal = () => {
-    setOpenModal(false);
+    setSelectedSkill(null);
   };
   const handleCloseContent = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -16,20 +21,20 @@ export const ModalPortal = ({ children, openModal, setOpenModal }: Props) => {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setOpenModal(false);
+        setSelectedSkill(null);
       }
     };
-    if (openModal) {
+    if (selectedSkill) {
       document.addEventListener("keydown", handleEsc);
     }
     return () => {
       document.removeEventListener("keydown", handleEsc);
     };
-  }, [openModal, setOpenModal]);
+  }, [selectedSkill, setSelectedSkill]);
 
   const modalRoot = document.getElementById("modal");
   const modalRef = useRef<HTMLDivElement>(null);
-  if (!openModal || !modalRoot) return null;
+  if (!selectedSkill || !modalRoot) return null;
   return createPortal(
     <div className="overlay" onClick={closeModal}>
       <div className="modall" ref={modalRef} onClick={handleCloseContent}>

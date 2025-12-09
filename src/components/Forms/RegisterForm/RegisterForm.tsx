@@ -14,13 +14,11 @@ export const RegisterForm = () => {
   // const { mutate, isPending, isError, error } = registerMutation;
   const onSubmit = async (data: { email: string; password: string }) => {
     mutate(data);
-    reset();
   };
   const {
     control,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     resolver: zodResolver(schemaRegister),
     defaultValues: {
@@ -70,7 +68,7 @@ export const RegisterForm = () => {
             )}
           </button>
           <div className="is-error mt-3 text-red-600 text-xs">
-            {isError && <span>{`Error en login: ${error?.message}`}</span>}
+            {isError && <span>⚠️ {error?.message}</span>}{" "}
           </div>
         </form>
       </div>

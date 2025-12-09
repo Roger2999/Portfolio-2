@@ -33,12 +33,16 @@ export const CustomCard = ({ img, description, title }: Props) => {
             <p>{description}</p>
           </div>
           <div className="card-text-skills">
-            <p>
+            <p className="mb-3">
               <strong>Habilidades técnicas:</strong>
-              {frontendSkills.map((skill) => (
-                <SimpleButton>{skill.name}</SimpleButton>
-              ))}
             </p>
+            <div className="flex flex-wrap gap-5">
+              {frontendSkills.map((skill) => (
+                <SimpleButton className="btn btn-sm btn-info" key={skill.name}>
+                  {skill.name}
+                </SimpleButton>
+              ))}
+            </div>
           </div>
         </div>
         <div className="buttons-container">

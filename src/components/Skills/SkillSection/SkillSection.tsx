@@ -1,16 +1,31 @@
-import { ModalContext } from "../../../context/ModalContext/ModalContext";
+//import { ModalContext } from "../../../context/ModalContext/ModalContext";
+import { useState } from "react";
 import { frontendSkills as skills } from "../../../data/skillsData";
 import { ThemeStore } from "../../../stores";
 import { ModalPortal } from "../../Modal/ModalPortal";
 import { SimpleButton } from "../../SimpleButton/SimpleButton";
 import { SkillCard } from "../SkillCard/SkillCard";
 import SkillCategory from "../SkillCategory/SkillCategory";
-import { useContext } from "react";
-
+//import { useContext } from "react";
+export type Skill =
+  | {
+      id: string;
+      name: string;
+      description: string;
+      icon: string;
+      level: number;
+    }
+  | {
+      id: string;
+      name: string;
+      description: string[];
+      icon: string;
+      level: number;
+    };
 const SkillsSection = () => {
   const theme = ThemeStore((state) => state.theme);
-
-  const { openModal, setOpenModal } = useContext(ModalContext);
+  const [selectedSkill, setSelectedSkill] = useState<null | Skill>(null);
+  //  const { openModal, setOpenModal } = useContext(ModalContext);
   return (
     <SkillCategory
       title="Frontend"
@@ -20,38 +35,38 @@ const SkillsSection = () => {
     >
       {skills.map((skill) => (
         <SkillCard key={skill.name} theme={theme} {...skill}>
-          {skill.name === "React" && (
+          {(skill.name === "React" || skill.name === "CSS") && (
             <>
               <button
-                className="btn btn-dash rounded-full mt-3"
-                onClick={() => setOpenModal(true)}
+                className="btn btn-info btn-md rounded-full mt-3 "
+                onClick={() => setSelectedSkill(skill)}
               >
                 +
               </button>
-              <ModalPortal openModal={openModal} setOpenModal={setOpenModal}>
-                <h3
-                  id={skill.id ? `${skill.id}-title` : undefined}
-                  className="font-bold text-lg"
-                >
-                  {skill.name}
-                </h3>
-                <div className="py-4">
-                  {Array.isArray(skill.description)
-                    ? skill.description.map((item) => (
-                        <SimpleButton
-                          className="btn btn-dash mr-2 mb-2"
-                          key={item}
-                        >
-                          {item}
-                        </SimpleButton>
-                      ))
-                    : skill.description}
-                </div>
-              </ModalPortal>
             </>
           )}
         </SkillCard>
       ))}
+      <ModalPortal
+        selectedSkill={selectedSkill}
+        setSelectedSkill={setSelectedSkill}
+      >
+        <h3
+          id={selectedSkill?.id ? `${selectedSkill.id}-title` : undefined}
+          className="font-bold text-lg"
+        >
+          {selectedSkill?.name}
+        </h3>
+        <div className="py-4">
+          {Array.isArray(selectedSkill?.description)
+            ? selectedSkill.description.map((item) => (
+                <SimpleButton className="btn btn-dash mr-2 mb-2" key={item}>
+                  {item}
+                </SimpleButton>
+              ))
+            : selectedSkill?.description}
+        </div>
+      </ModalPortal>
     </SkillCategory>
   );
 };

@@ -77,8 +77,6 @@ body {
   font-size: 1.1rem;
   line-height: 1.6;
 }
-
-
 .buttons-container {
   display: flex;
   gap: 25px;
@@ -86,11 +84,6 @@ body {
   margin-bottom: 24px;
   justify-content: start;
   width: 100%;
-}
-.buttons-container .btn{
-  color: aliceblue;
-  max-width: 160px;
-  min-width: 100px;
 }
 /* Responsive */
 @media (max-width: 900px) {

@@ -66,25 +66,17 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
             </div>
           </div>
           <div className="rigth-box flex items-center justify-end h-full">
-            <div className="login-container flex justify-center items-center">
-              <NavLink to="./register">
-                <SimpleButton className="btn btn-outline btn-success">
-                  Registrarse
-                </SimpleButton>
+            <div className="login-container flex justify-center items-center gap-5 mr-3">
+              <NavLink to="./register" className={"btn btn-outline mx-0"}>
+                <SimpleButton>Registrarse</SimpleButton>
               </NavLink>
               {isAuthenticated ? (
-                <SimpleButton
-                  onClick={logout}
-                  className="btn btn-outline btn-success mx-0"
-                >
+                <SimpleButton onClick={logout} className="btn btn-outline mx-0">
                   Logout
                 </SimpleButton>
               ) : (
-                <NavLink
-                  to="./login"
-                  className={"btn btn-outline btn-success mx-0"}
-                >
-                  <SimpleButton className="">Login</SimpleButton>
+                <NavLink to="./login" className={"btn btn-outline mx-0"}>
+                  <SimpleButton>Login</SimpleButton>
                 </NavLink>
               )}
             </div>
