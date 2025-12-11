@@ -1,13 +1,12 @@
-import type { Theme } from "../../stores";
+import { ThemeStore } from "../../stores";
 
-interface Props {
-  theme?: Theme;
-  bgClass: string | undefined;
-}
-export const BioSection = ({ bgClass }: Props) => {
+export const BioSection = () => {
+  const theme = ThemeStore((state) => state.theme);
   return (
     <div
-      className={`rounded-2xl shadow-2xl p-8 border-t-4 md:mb-2 mb-10 border-blue-500 w-[60rem] max-w-[80%] ${bgClass}`}
+      className={`rounded-2xl shadow-2xl p-8 border-t-4 md:mb-2 mb-10 border-blue-500 w-[60rem] max-w-[80%] glass ${
+        theme == "dark" && "text-gray-50"
+      }`}
     >
       <div className="mb-8">
         <h2 className="flex items-center text-2xl md:text-3xl font-semibold mb-4 w-[600px]  max-w-[80%] ">

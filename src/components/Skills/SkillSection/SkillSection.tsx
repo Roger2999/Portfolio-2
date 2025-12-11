@@ -24,13 +24,13 @@ export type Skill =
     };
 const SkillsSection = () => {
   const theme = ThemeStore((state) => state.theme);
-  const [selectedSkill, setSelectedSkill] = useState<null | Skill>(null);
-  //  const { openModal, setOpenModal } = useContext(ModalContext);
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+
   return (
     <SkillCategory
       title="Frontend"
-      colorClass={`skill-category ${
-        theme === "dark" ? "bg-gray-700 text-gray-300" : "bg-gray-200"
+      colorClass={`skill-category glass font-mono ${
+        theme === "dark" ? "text-gray-300" : "bg-gray-200"
       }`}
     >
       {skills.map((skill) => (

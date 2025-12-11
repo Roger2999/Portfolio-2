@@ -42,7 +42,9 @@ export const CustomInput = <T extends FieldValues>({
                 id={name}
                 {...field}
                 type={type}
-                className={`input w-full ${error ? "input input-error" : ""}`}
+                className={`input w-full border-gray-400 ${
+                  error ? "input input-error" : ""
+                }`}
               />
             </>
           )}

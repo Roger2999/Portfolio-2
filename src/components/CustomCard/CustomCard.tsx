@@ -38,30 +38,33 @@ export const CustomCard = ({ img, description, title }: Props) => {
             </p>
             <div className="flex flex-wrap gap-5">
               {frontendSkills.map((skill) => (
-                <SimpleButton className="btn btn-sm btn-info" key={skill.name}>
+                <SimpleButton
+                  className="btn btn-outline btn-accent btn-sm"
+                  key={skill.name}
+                >
                   {skill.name}
                 </SimpleButton>
               ))}
             </div>
           </div>
         </div>
-        <div className="buttons-container">
+        <div className="buttons-container  ">
           <ButtonNav
             label={"Ver proyectos"}
             to={"/projects"}
-            className="btn btn-info"
+            className="btn btn-outline"
           />
           <ButtonNav
             label={"Contactar"}
             to={"/contact"}
-            className="btn btn-info"
+            className={`btn btn-outline`}
           />
           <a
             href="public/CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download={"CV-Roger-Gutierrez-Martinez.pdf"}
-            className="btn btn-info"
+            className="btn btn-outline"
           >
             Descargar CV
           </a>

@@ -8,8 +8,8 @@ export const ContactPage = () => {
     <>
       <article
         className={`flex flex-col items-center justify-center mt-6
-        rounded-2xl border-blue-500 border-t-4 shadow-md p-4 sm:p-6 w-[30rem] max-w-[80%] text-left font-mono ${
-          theme === "dark" ? "bg-gray-700" : "bg-gray-300"
+        rounded-2xl border-blue-500 border-t-4 shadow-2xl p-4 sm:p-6 w-[30rem] max-w-[80%] text-left font-mono glass ${
+          theme === "light" ? "bg-gray-200" : "text-gray-50"
         }`}
       >
         <h2 className="text-2xl font-bold mb-4 text-center">

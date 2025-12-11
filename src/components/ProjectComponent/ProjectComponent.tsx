@@ -23,7 +23,7 @@ export const ProjectComponent = ({
           className={`mb-10 border-l-2 border-teal-400 ${styles.container2}`}
         >
           <div
-            className={`periode-container flex flex-col gap-10 flex-1 justify-start items-start min-h-full font-semibold py-3 ${
+            className={`periode-container flex flex-col gap-10 flex-1 justify-start items-start min-h-full font-semibold ${
               styles.periodeContainer
             } ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}
           >

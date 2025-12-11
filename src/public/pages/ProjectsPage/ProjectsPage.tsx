@@ -18,8 +18,8 @@ export const ProjectsPage = () => {
           <h1>Mis Proyectos</h1>
         </div>
         <div
-          className={`skills-container py-10 mb-10 border-t-4 border-blue-500 mt-8  ${
-            theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+          className={`skills-container py-10 mb-10 border-t-4 border-blue-500 mt-8 glass  ${
+            theme === "light" && "bg-gray-200"
           }`}
         >
           {projects && projects.length > 0 ? (

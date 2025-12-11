@@ -45,7 +45,7 @@ export const CustomSelect = <T extends FieldValues>({
                 id={name}
                 {...field}
                 multiple={multiple}
-                className={`select w-full h-full ${
+                className={`select w-full h-full border-gray-400 ${
                   error ? "select-error" : ""
                 }`}
                 value={multiple ? field.value || [] : field.value || ""}
