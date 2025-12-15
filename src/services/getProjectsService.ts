@@ -1,6 +1,6 @@
 import { supabase } from "../lib/supabaseConfig";
 
-interface Projects {
+export interface Projects {
   id: string;
   user_id: string;
   rol: string;
