@@ -75,7 +75,7 @@ export const useDeleteProject = () => {
 };
 
 export const useRegisterSupabaseMutation = () => {
-  const { mutate, isPending } = useMutation({
+  const { mutate, isPending, isError, error } = useMutation({
     mutationFn: async (data: { email: string; password: string }) => {
       registerSupabaseService(data.email, data.password);
     },
@@ -86,11 +86,11 @@ export const useRegisterSupabaseMutation = () => {
       console.log(`Ha ocurrido un error: ${error.message}`);
     },
   });
-  return { mutate, isPending };
+  return { mutate, isPending, isError, error };
 };
 export const useLoginSupabaseMutation = () => {
   const login = AuthStore((state) => state.login);
-  const { mutate, isPending, isSuccess } = useMutation({
+  const { mutate, isPending, isSuccess, isError, error } = useMutation({
     mutationFn: async (data: { email: string; password: string }) => {
       const response = await loginSupabaseService(data.email, data.password);
       return response;
@@ -102,5 +102,5 @@ export const useLoginSupabaseMutation = () => {
       console.log(`Ha ocurrido un error: ${error.message}`);
     },
   });
-  return { mutate, isPending, isSuccess };
+  return { mutate, isPending, isSuccess, isError, error };
 };
