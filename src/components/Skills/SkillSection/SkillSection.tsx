@@ -38,7 +38,7 @@ const SkillsSection = () => {
           {(skill.name === "React" || skill.name === "CSS") && (
             <>
               <button
-                className="btn btn-info btn-md rounded-full mt-3 "
+                className="btn btn-accent btn-md rounded-full mt-3 "
                 onClick={() => setSelectedSkill(skill)}
               >
                 +

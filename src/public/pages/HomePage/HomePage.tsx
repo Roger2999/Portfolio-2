@@ -9,9 +9,9 @@ export const HomePage = () => {
   return (
     <>
       <div className="card-container">
-        <div className={`glass  card border-t-4 border-blue-50`}>
+        <div className={`glass card border-t-4 border-blue-50`}>
           <CustomCard
-            title={"Frontend developer junior"}
+            title={"Frontend web developer"}
             description={
               "Desarrollador frontend con especial enfoque en React y TypeScript, creando interfaces accesibles y experiencias de usuario excepcionales. Apasionado por el código limpio y el rendimiento. Este portfolio refleja mi compromiso con soluciones modernas, diseño intuitivo y estándares web de calidad."
             }
