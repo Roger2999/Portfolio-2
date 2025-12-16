@@ -68,7 +68,7 @@ export const HeaderMobile = ({ onCurrent, current, theme }: HeaderProps) => {
                 </SimpleButton>
               </NavLink>
             )}
-            <NavLink to="./register">
+            <NavLink to="./register" className={"ml-5"}>
               <SimpleButton className="btn btn-outline btn-success">
                 Registrarse
               </SimpleButton>

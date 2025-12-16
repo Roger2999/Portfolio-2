@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm, type FieldError } from "react-hook-form";
 import { schemaProjects, type FormProjectData } from "../../models/form.model";
 import { frontendSkills } from "../../data/skillsData";
@@ -8,7 +9,9 @@ import "./Projects.css";
 import {
   useCreateProject,
   useDeleteProject,
+  useUpdateProject,
 } from "../../hooks/useProjectsMutation";
+import { EditProjectModal } from "../../components/EditProjectModal/EditProjectModal";
 import { useGetProjects } from "../../hooks/useGetProjects";
 
 export const Projects = () => {
@@ -37,10 +40,20 @@ export const Projects = () => {
   const { mutate, isPending } = useCreateProject();
   const { mutate: deleteMutate, isPending: isDeletePending } =
     useDeleteProject();
+  const { mutate: updateMutate } = useUpdateProject();
+  const [selectedProject, setSelectedProject] = useState<
+    (Partial<FormProjectData> & { id: string }) | null
+  >(null);
   const { data, isLoading, isError, error } = useGetProjects();
   const onSubmit = async (project: FormProjectData) => {
     mutate(project);
     reset();
+  };
+
+  const handleConfirmEdit = (data: FormProjectData) => {
+    if (!selectedProject) return;
+    updateMutate({ id: selectedProject.id, project: data });
+    setSelectedProject(null);
   };
   return (
     <>
@@ -144,12 +157,29 @@ export const Projects = () => {
                         </div>
                       </td>
                       <td>
-                        <button
-                          onClick={() => deleteMutate(p.id)}
-                          className="btn btn-sm btn-error min-w-28"
-                        >
-                          {isDeletePending ? "Eliminando..." : "Eliminar"}
-                        </button>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() =>
+                              setSelectedProject({
+                                id: p.id,
+                                rol: p.rol,
+                                description: p.description,
+                                startDate: p.start_date,
+                                endDate: p.end_date,
+                                technologies: p.technologies,
+                              })
+                            }
+                            className="btn btn-sm btn-primary"
+                          >
+                            Editar
+                          </button>
+                          <button
+                            onClick={() => deleteMutate(p.id)}
+                            className="btn btn-sm btn-error"
+                          >
+                            {isDeletePending ? "Eliminando..." : "Eliminar"}
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))
@@ -170,6 +200,12 @@ export const Projects = () => {
           </div>
         </div>
       </div>
+      <EditProjectModal
+        isOpen={!!selectedProject}
+        project={selectedProject}
+        onConfirm={handleConfirmEdit}
+        onClose={() => setSelectedProject(null)}
+      />
     </>
   );
 };
