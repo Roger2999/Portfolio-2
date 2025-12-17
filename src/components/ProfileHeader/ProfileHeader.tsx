@@ -1,4 +1,4 @@
-import profileImage from "../../assets/photoperfil.png";
+import profileImage from "../../assets/perfil.png";
 import type { Theme } from "../../stores";
 
 interface Props {

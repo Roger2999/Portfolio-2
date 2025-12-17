@@ -24,13 +24,15 @@ export const ProjectsPage = () => {
         >
           {projects && projects.length > 0 ? (
             projects.map((project) => (
-              <ProjectComponent
-                start={project.start_date}
-                end={project.end_date}
-                rol={project.rol}
-                description={project.description}
-                skills={project.technologies}
-              />
+              <div key={project.id}>
+                <ProjectComponent
+                  start={project.start_date}
+                  end={project.end_date}
+                  rol={project.rol}
+                  description={project.description}
+                  skills={project.technologies}
+                />
+              </div>
             ))
           ) : (
             <p className="text-center">No hay proyectos para mostrar.</p>

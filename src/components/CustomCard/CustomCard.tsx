@@ -3,17 +3,16 @@ import { frontendSkills } from "../../data/skillsData";
 import { ThemeStore } from "../../stores";
 interface Props {
   img: string;
-  description: string;
   title: string;
   theme: string | null;
 }
-export const CustomCard = ({ img, description, title }: Props) => {
+export const CustomCard = ({ img, title }: Props) => {
   const theme = ThemeStore((state) => state.theme);
   return (
     <>
       <div className={`image-perfil`}>
         <img
-          className={`border-4 ${
+          className={`${
             theme == "dark" ? " border-gray-300" : "border-gray-900"
           }`}
           src={img}
@@ -29,8 +28,27 @@ export const CustomCard = ({ img, description, title }: Props) => {
           {title}
         </h5>
         <div className="card-text-container text-start">
-          <div className="card-text-description mb-5">
-            <p>{description}</p>
+          <div className="card-text-description mb-5 text-lg">
+            <p>
+              Desarrollador frontend con especial enfoque en{" "}
+              <span className="text-amber-500 font-bold">
+                React y TypeScript
+              </span>
+              , de Matanzas , Cuba{" "}
+              <img
+                src="public/cu.svg"
+                width={30}
+                height={20}
+                className="inline"
+              />{" "}
+              . Me apasiona escribir{" "}
+              <span className="text-amber-500 font-bold">código limpio</span> y
+              mantener{" "}
+              <span className="text-amber-500 font-bold">buenas prácticas</span>
+              , mientras continúo aprendiendo y mejorando cada día como
+              desarrollador. Este portfolio refleja mi compromiso con soluciones
+              modernas, diseño intuitivo y estándares web de calidad.
+            </p>
           </div>
           <div className="card-text-skills">
             <p className="mb-3">
@@ -52,19 +70,19 @@ export const CustomCard = ({ img, description, title }: Props) => {
           <ButtonNav
             label={"Ver proyectos"}
             to={"/projects"}
-            className="btn btn-outline"
+            className="btn btn-outline rounded-2xl"
           />
           <ButtonNav
-            label={"Contactar"}
+            label={"Contactame"}
             to={"/contact"}
-            className={`btn btn-outline`}
+            className={`btn btn-outline rounded-2xl`}
           />
           <a
             href="public/CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download={"CV-Roger-Gutierrez-Martinez.pdf"}
-            className="btn btn-outline"
+            className="btn btn-outline rounded-2xl"
           >
             Descargar CV
           </a>
