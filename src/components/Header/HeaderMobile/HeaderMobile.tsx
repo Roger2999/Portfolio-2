@@ -82,12 +82,12 @@ export const HeaderMobile = ({ onCurrent, current, theme }: HeaderProps) => {
                   >
                     GP
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     className={"btn btn-warning"}
                     to="/private/manageSkills"
                   >
                     GH
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               </>
             )}

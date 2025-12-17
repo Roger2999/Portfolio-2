@@ -79,9 +79,14 @@ export const useDeleteProject = () => {
 export const useUpdateProject = () => {
   const queryClient = useQueryClient();
   const { mutate, isPending, isError } = useMutation({
-    mutationFn: ({ id, project }: { id: string; project: FormProjectData }) =>
-      updateProjectService(id, project),
-    onMutate: async ({ id, project }) => {
+    mutationFn: ({
+      id,
+      updateProject,
+    }: {
+      id: string;
+      updateProject: FormProjectData;
+    }) => updateProjectService(id, updateProject),
+    onMutate: async ({ id, updateProject }) => {
       await queryClient.cancelQueries({ queryKey: ["projects"] });
       const previousProjects = queryClient.getQueryData<Projects[] | undefined>(
         ["projects"]
@@ -92,11 +97,11 @@ export const useUpdateProject = () => {
               p.id === id
                 ? {
                     ...p,
-                    rol: project.rol,
-                    description: project.description,
-                    start_date: project.startDate,
-                    end_date: project.endDate,
-                    technologies: project.technologies,
+                    rol: updateProject.rol,
+                    description: updateProject.description,
+                    start_date: updateProject.startDate,
+                    end_date: updateProject.endDate,
+                    technologies: updateProject.technologies,
                   }
                 : p
             )

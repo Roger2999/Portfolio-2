@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useForm } from "react-hook-form";
-import type { FormProjectData } from "../../models/form.model";
+import { useForm, type FieldError } from "react-hook-form";
+import { schemaProjects, type FormProjectData } from "../../models/form.model";
 import "../Modal/ModalPortal.css";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { CustomInput } from "../Forms/CustomInput/CustomInput";
+import { CustomSelect } from "../Forms/CustomSelect/CustomSelect";
+import { frontendSkills } from "../../data/skillsData";
 
 interface Props {
   isOpen: boolean;
@@ -18,20 +22,25 @@ export const EditProjectModal: React.FC<Props> = ({
   onClose,
 }) => {
   const {
-    register,
+    control,
     handleSubmit,
-    reset,
     formState: { errors },
-  } = useForm<FormProjectData>({
+    reset,
+  } = useForm({
+    resolver: zodResolver(schemaProjects),
     defaultValues: {
       rol: "",
       description: "",
       startDate: "",
       endDate: "",
-      technologies: [],
+      technologies: [] as string[],
     },
+    mode: "onBlur",
   });
-
+  const tecnologiasOptions = frontendSkills.map((skill) => ({
+    value: skill.name,
+    label: skill.name,
+  }));
   useEffect(() => {
     if (isOpen && project) {
       reset({
@@ -64,68 +73,42 @@ export const EditProjectModal: React.FC<Props> = ({
           onSubmit={handleSubmit((data) => onConfirm(data))}
           className="flex flex-col gap-3"
         >
-          <label className="flex flex-col">
-            <span>Rol</span>
-            <input className="input input-bordered" {...register("rol")} />
-            {errors.rol && (
-              <span className="text-red-500">{errors.rol.message}</span>
-            )}
-          </label>
-
-          <label className="flex flex-col">
-            <span>Descripción</span>
-            <input
-              className="input input-bordered"
-              {...register("description")}
-            />
-            {errors.description && (
-              <span className="text-red-500">{errors.description.message}</span>
-            )}
-          </label>
-
-          <label className="flex flex-col">
-            <span>Fecha Desde</span>
-            <input
-              type="date"
-              className="input input-bordered"
-              {...register("startDate")}
-            />
-            {errors.startDate && (
-              <span className="text-red-500">{errors.startDate.message}</span>
-            )}
-          </label>
-
-          <label className="flex flex-col">
-            <span>Fecha Hasta</span>
-            <input
-              type="date"
-              className="input input-bordered"
-              {...register("endDate")}
-            />
-            {errors.endDate && (
-              <span className="text-red-500">{errors.endDate.message}</span>
-            )}
-          </label>
-
-          <label className="flex flex-col">
-            <span>Tecnologías (coma separado)</span>
-            <input
-              className="input input-bordered"
-              defaultValue={(project?.technologies ?? []).join(",")}
-              {...register("technologies", {
-                setValueAs: (v) =>
-                  typeof v === "string" && v.length > 0
-                    ? v.split(",").map((s) => s.trim())
-                    : [],
-              })}
-            />
-            {errors.technologies && (
-              <span className="text-red-500">
-                {errors.technologies.message}
-              </span>
-            )}
-          </label>
-
+          <CustomInput
+            name="rol"
+            label="Rol"
+            control={control}
+            type="text"
+            error={errors.rol}
+          />
+          <CustomInput
+            name="description"
+            label="Descripción"
+            control={control}
+            type="text"
+            error={errors.description}
+          />
+          <CustomInput
+            name="startDate"
+            label="Fecha Desde"
+            control={control}
+            type="date"
+            error={errors.startDate}
+          />
+          <CustomInput
+            name="endDate"
+            label="Fecha Hasta"
+            control={control}
+            type="date"
+            error={errors.endDate}
+          />
+          <CustomSelect
+            name="technologies"
+            label="Tecnologías Usadas"
+            control={control}
+            options={tecnologiasOptions}
+            multiple={true}
+            error={errors.technologies as FieldError | undefined}
+          />
           <div className="flex justify-end gap-2 mt-2">
             <button type="button" className="btn btn-ghost" onClick={onClose}>
               Cancelar

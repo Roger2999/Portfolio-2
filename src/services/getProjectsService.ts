@@ -10,7 +10,10 @@ export interface Projects {
   technologies: string[];
 }
 export const getProjectsService = async (): Promise<Projects[]> => {
-  const { data, error } = await supabase.from("projects").select("*");
+  const { data, error } = await supabase
+    .from("projects")
+    .select("*")
+    .order("created_at", { ascending: false });
 
   if (error) throw new Error(error.message);
   return data as Projects[];

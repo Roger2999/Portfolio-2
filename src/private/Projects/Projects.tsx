@@ -50,9 +50,9 @@ export const Projects = () => {
     reset();
   };
 
-  const handleConfirmEdit = (data: FormProjectData) => {
+  const handleConfirmEdit = async (project: FormProjectData) => {
     if (!selectedProject) return;
-    updateMutate({ id: selectedProject.id, project: data });
+    updateMutate({ id: selectedProject.id, updateProject: project });
     setSelectedProject(null);
   };
   return (

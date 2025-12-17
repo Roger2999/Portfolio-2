@@ -52,12 +52,12 @@ export const HeaderDesktop = ({ theme, onCurrent, current }: HeaderProps) => {
                     >
                       GP
                     </NavLink>
-                    <NavLink
+                    {/* <NavLink
                       className={"btn btn-warning"}
                       to="/private/manageSkills"
                     >
                       GH
-                    </NavLink>
+                    </NavLink> */}
                   </>
                 )}
 
