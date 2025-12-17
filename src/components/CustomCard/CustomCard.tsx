@@ -1,6 +1,7 @@
 import { ButtonNav, SimpleButton } from "../../components";
 import { frontendSkills } from "../../data/skillsData";
 import { ThemeStore } from "../../stores";
+import countryImage from "../../assets/cu.svg";
 interface Props {
   img: string;
   title: string;
@@ -36,7 +37,7 @@ export const CustomCard = ({ img, title }: Props) => {
               </span>
               , de Matanzas , Cuba{" "}
               <img
-                src="public/cu.svg"
+                src={countryImage}
                 width={30}
                 height={20}
                 className="inline"
