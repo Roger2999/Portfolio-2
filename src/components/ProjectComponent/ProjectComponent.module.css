@@ -23,6 +23,7 @@
   flex-direction: column;
   justify-content: flex-start;
   flex: 3;
+  width: 100%;
   max-width: 511px;
   word-break: break-word;
 
