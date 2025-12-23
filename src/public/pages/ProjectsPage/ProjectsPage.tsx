@@ -9,7 +9,7 @@ export const ProjectsPage = () => {
   const { data: projects, isLoading } = useGetProjects();
   return (
     <>
-      <div className="projects-page-container flex flex-1 flex-col h-full w-full items-center justify-start">
+      <div className="projects-page-container flex flex-col flex-1  h-full w-full items-center justify-center">
         <div
           className={`projects-container ${
             theme == "dark" ? "text-gray-300" : "text-gray-500"
@@ -23,7 +23,7 @@ export const ProjectsPage = () => {
               .fill(0)
               .map((_, index) => (
                 <div
-                  className="flex w-full max-w-[80%] flex-col gap-4 mb-5"
+                  className="flex flex-col items-center w-[800px] max-w-[80%] gap-4 mb-5"
                   key={index}
                 >
                   <Skeleton className="flex w-[600px] max-w-[80%] flex-col gap-4" />

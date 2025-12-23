@@ -10,6 +10,7 @@ import {
   ProjectsPage,
   SkillsPage,
 } from "./public/pages";
+
 import { Register } from "./public/pages/Register/Register";
 
 export const PortfolioRouter = () => {

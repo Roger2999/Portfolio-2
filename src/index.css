@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@view-transition{
+    natigation:auto
+}
+::view-transition-group(*){
+    animation-duration: 10s;
+}
