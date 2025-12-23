@@ -1,4 +1,6 @@
 import { ThemeStore } from "../../stores";
+import { PreviewButton } from "../../components";
+
 import styles from "./ProjectComponent.module.css";
 interface Props {
   start: string;
@@ -19,9 +21,7 @@ export const ProjectComponent = ({
   return (
     <>
       <article className={styles.container1}>
-        <div
-          className={`mb-10 border-l-2 border-teal-400 ${styles.container2}`}
-        >
+        <div className={`border-l-2 border-teal-400 ${styles.container2}`}>
           <div
             className={`periode-container flex flex-col gap-5 flex-1 justify-start items-start min-h-full font-semibold ${
               styles.periodeContainer
@@ -90,6 +90,15 @@ export const ProjectComponent = ({
                   ))
                 : null}
             </div>
+          </div>
+          <div className="preview-btn w-full h-full flex justify-center items-center sm:justify-start">
+            <PreviewButton
+              href="https://roger-portfolio-gold.vercel.app/"
+              label="Preview"
+              className=" bg-white/20 backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20 w-20 py-1 px-4"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
           </div>
         </div>
       </article>

@@ -11,3 +11,4 @@ export * from "./Forms/RegisterForm/RegisterForm";
 export * from "./Forms/CustomInput/CustomInput";
 export * from "./Forms/CustomSelect/CustomSelect";
 export * from "./Skeleton/Skeleton";
+export * from "./PreviewButton/PreviewButton";
