@@ -8,6 +8,8 @@ export interface Projects {
   start_date: string;
   end_date: string;
   technologies: string[];
+  preview_url: string;
+  code: string;
 }
 export const getProjectsService = async (): Promise<Projects[]> => {
   const { data, error } = await supabase

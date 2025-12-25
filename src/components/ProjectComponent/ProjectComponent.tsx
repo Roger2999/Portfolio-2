@@ -1,5 +1,7 @@
 import { ThemeStore } from "../../stores";
 import { PreviewButton } from "../../components";
+import previewIcon from "../../assets/preview-icon.svg";
+import gitHubIcon from "../../assets/github-icon.svg";
 
 import styles from "./ProjectComponent.module.css";
 interface Props {
@@ -8,6 +10,8 @@ interface Props {
   rol: string;
   description: string;
   skills: string[];
+  preview_url?: string;
+  code?: string;
 }
 
 export const ProjectComponent = ({
@@ -16,6 +20,8 @@ export const ProjectComponent = ({
   rol,
   description,
   skills,
+  preview_url,
+  code,
 }: Props) => {
   const theme = ThemeStore((state) => state.theme);
   return (
@@ -91,14 +97,31 @@ export const ProjectComponent = ({
                 : null}
             </div>
           </div>
-          <div className="preview-btn w-full h-full flex justify-center items-center sm:justify-start">
-            <PreviewButton
-              href="https://roger-portfolio-gold.vercel.app/"
-              label="Preview"
-              className=" bg-white/20 backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20 w-20 py-1 px-4"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
+          <div className="preview-btn w-full h-full flex justify-center items-center gap-6 sm:justify-start">
+            {preview_url && (
+              <PreviewButton
+                href={preview_url}
+                label="Preview"
+                className={`${
+                  theme == "dark" ? "bg-white/20" : "bg-gray-300"
+                } backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20 py-1 px-5`}
+                target="_blank"
+                rel="noopener noreferrer"
+                icon={previewIcon}
+              />
+            )}
+            {code && (
+              <PreviewButton
+                label="Code"
+                href={code}
+                className={`${
+                  theme == "dark" ? "bg-white/20" : "bg-gray-300"
+                } backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20 py-1 px-5`}
+                target="_blank"
+                rel="noopener noreferrer"
+                icon={gitHubIcon}
+              />
+            )}
           </div>
         </div>
       </article>

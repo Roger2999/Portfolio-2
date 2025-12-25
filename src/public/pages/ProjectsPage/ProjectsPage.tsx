@@ -45,6 +45,8 @@ export const ProjectsPage = () => {
                     rol={project.rol}
                     description={project.description}
                     skills={project.technologies}
+                    preview_url={project.preview_url}
+                    code={project.code}
                   />
                 </div>
               ))
