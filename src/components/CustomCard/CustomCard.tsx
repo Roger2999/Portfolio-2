@@ -37,9 +37,11 @@ export const CustomCard = ({ img, title }: Props) => {
               <span className="text-amber-500 font-bold">
                 React y TypeScript
               </span>
-              , de Matanzas , Cuba{" "}
+              , de Matanzas, Cuba{" "}
               <img
                 src={countryImage}
+                loading="lazy"
+                decoding="async"
                 width={30}
                 height={20}
                 className="inline"
