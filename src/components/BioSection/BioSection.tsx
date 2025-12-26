@@ -4,8 +4,8 @@ export const BioSection = () => {
   const theme = ThemeStore((state) => state.theme);
   return (
     <div
-      className={`rounded-2xl shadow-2xl p-8 border-t-4 md:mb-2 mb-10 border-blue-500 w-[60rem] max-w-[80%] glass ${
-        theme == "dark" && "text-gray-50"
+      className={`rounded-2xl shadow-2xl p-8 border-t-4 md:mb-2 mb-10 border-blue-500 w-[60rem] max-w-[80%] ${
+        theme == "dark" ? "bg-gray-800 text-gray-50":"bg-gray-300"
       }`}
     >
       <div className="mb-8">
