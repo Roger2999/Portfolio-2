@@ -9,7 +9,7 @@ export const HomePage = () => {
   return (
     <>
       <div className="card-container">
-        <div className={`glass card`}>
+        <div className={`bg-gray-500 card`}>
           <CustomCard
             title={"Frontend web developer"}
             img={profileImage}
