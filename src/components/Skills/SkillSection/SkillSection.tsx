@@ -29,8 +29,8 @@ const SkillsSection = () => {
   return (
     <SkillCategory
       title="Frontend"
-      colorClass={`skill-category glass font-mono ${
-        theme === "dark" ? "text-gray-300" : "bg-gray-200"
+      colorClass={`skill-category font-mono ${
+        theme === "dark" ? "bg-gray-800 text-gray-300" : "bg-gray-200"
       }`}
     >
       {skills.map((skill) => (
