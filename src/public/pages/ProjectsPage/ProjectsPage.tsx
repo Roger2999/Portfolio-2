@@ -32,8 +32,8 @@ export const ProjectsPage = () => {
           </>
         ) : (
           <div
-            className={`skills-container py-10 mb-10 border-t-4 border-blue-500 mt-8 glass  ${
-              theme === "light" && "bg-gray-200"
+            className={`skills-container py-10 mb-10 border-t-4 border-blue-500 mt-8 ${
+              theme === "light" ? "bg-gray-200":"bg-gray-800"
             }`}
           >
             {projects && projects.length > 0 ? (
