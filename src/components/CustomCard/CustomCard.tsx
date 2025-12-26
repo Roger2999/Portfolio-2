@@ -18,6 +18,8 @@ export const CustomCard = ({ img, title }: Props) => {
           }`}
           src={img}
           alt={title}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="card-bodyy">
