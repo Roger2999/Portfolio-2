@@ -104,7 +104,7 @@ export const ProjectComponent = ({
                 label="Preview"
                 className={`${
                   theme == "dark" ? "bg-white/20" : "bg-gray-300"
-                } backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20 py-1 px-6`}
+                } backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20`}
                 target="_blank"
                 rel="noopener noreferrer"
                 icon={previewIcon}
@@ -116,7 +116,7 @@ export const ProjectComponent = ({
                 href={code}
                 className={`${
                   theme == "dark" ? "bg-white/20" : "bg-gray-300"
-                } backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20 py-1 px-6`}
+                } backdrop-blur-3xl border-2 border-white/20 text-gray-900 font-semibold text-sm hover:bg-gray-400 hover:border-white/20 `}
                 target="_blank"
                 rel="noopener noreferrer"
                 icon={gitHubIcon}
