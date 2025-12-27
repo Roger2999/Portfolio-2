@@ -9,7 +9,7 @@ export const HomePage = () => {
   return (
     <>
       <div className="card-container">
-        <div className={`${theme=="dark"?"bg-gray-800":"bg-gray-300"}card`}>
+        <div className={`card ${theme=="dark"?"bg-gray-800":"bg-gray-200"}`}>
           <CustomCard
             title={"Frontend web developer"}
             img={profileImage}
