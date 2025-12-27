@@ -10,8 +10,8 @@ export const ContactPage = () => {
         className={`contact-card-container flex flex-col w-[500px] max-w-[80%]`}
       >
         <div
-          className={`contact-card flex flex-col glass rounded-2xl font-mono w-full ${
-            theme === "light" ? "bg-gray-300" : "text-gray-50"
+          className={`contact-card flex flex-col rounded-2xl font-mono w-full ${
+            theme === "light" ? "bg-gray-200" : "text-gray-800"
           }`}
         >
           <div className="contact-info p-6 border-t-4 rounded-2xl border-t-blue-500">
