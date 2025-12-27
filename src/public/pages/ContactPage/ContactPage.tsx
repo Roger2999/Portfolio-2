@@ -11,7 +11,7 @@ export const ContactPage = () => {
       >
         <div
           className={`contact-card flex flex-col rounded-2xl font-mono w-full ${
-            theme === "light" ? "bg-gray-200 text-gray-800" : "text-gray-800 text-gray-200"
+            theme === "light" ? "bg-gray-200 text-gray-800" : "bg-gray-800 text-gray-200"
           }`}
         >
           <div className="contact-info p-6 border-t-4 rounded-2xl border-t-blue-500">
