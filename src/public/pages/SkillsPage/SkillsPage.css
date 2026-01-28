@@ -5,19 +5,19 @@
 .skill-card:hover .icon {
   transform: scale(1.15) rotate(-6deg);
 }
-
 .skill-category-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  width: 100%;
+  grid-template-columns: repeat(2,minmax(100px,1fr));
+  grid-template-rows: repeat(2,minmax(100px,1fr));
+  gap: 2rem;
 }
 
-@media (min-width: 600px) {
-  .skill-category-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+@media(min-width:640px){
+.skill-category-grid {
+  grid-template-columns: repeat(3,minmax(auto,1fr));
 }
-
+}
 .skills-page {
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@
 
 .skills-section {
   display: flex;
-  width: 500px;
+  width: 700px;
   max-width: 95%;
   flex-direction: column;
   align-items: center;
@@ -61,15 +61,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border-radius: 1.25rem;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  padding: 2rem 2rem;
   border-top: 5px solid var(--color-border, #007bff);
   transition: box-shadow 0.2s, transform 0.2s;
-  position: relative;
   width: 850px;
-  max-width: 90%;
+  max-width: 100%;
   min-height: 450px;
+  padding: 10px;
 }
 
 .skill-category:hover {
